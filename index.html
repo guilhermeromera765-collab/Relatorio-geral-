@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Relatório Geral</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f5f6f8;--cd:#fff;--tx:#1b1f27;--mut:#667085;--bd:#e3e6eb;--ac:#2563eb;--ok:#15803d;--bad:#b42318;--tr:#e8ebf0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1218;--cd:#181c25;--tx:#e8eaf0;--mut:#9aa3b2;--bd:#2a3040;--ac:#5b8cff;--ok:#4ade80;--bad:#f87171;--tr:#2a3040}}
+:root[data-theme="dark"]{--bg:#0f1218;--cd:#181c25;--tx:#e8eaf0;--mut:#9aa3b2;--bd:#2a3040;--ac:#5b8cff;--ok:#4ade80;--bad:#f87171;--tr:#2a3040}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:1000px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:22px;margin:0 0 14px}h2{font-size:17px;margin:28px 0 10px}
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:16px;min-width:0}
+summary{cursor:pointer;font-weight:600}
+textarea{width:100%;min-height:150px;margin-top:10px;font:13px/1.4 ui-monospace,Menlo,Consolas,monospace;background:var(--bg);color:var(--tx);border:1px solid var(--bd);border-radius:8px;padding:10px;resize:vertical}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:10px}
+button{background:var(--ac);color:#fff;border:0;border-radius:8px;padding:10px 18px;font-size:15px;cursor:pointer}
+button.gh{background:transparent;color:var(--ac);border:1px solid var(--ac)}
+input[type=text],select{padding:6px;border-radius:6px;border:1px solid var(--bd);background:var(--bg);color:var(--tx)}
+input[type=time],input[type=number]{width:64px;padding:6px;border-radius:6px;border:1px solid var(--bd);background:var(--bg);color:var(--tx)}
+.err{color:var(--bad);margin-top:8px}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:14px}
+.k{font-size:12px;color:var(--mut);text-transform:uppercase;letter-spacing:.04em}.v{font-size:28px;font-weight:700;margin:2px 0}.d{font-size:13px;color:var(--mut)}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:9px 10px;text-align:left;white-space:nowrap;border-bottom:1px solid var(--bd)}th{color:var(--mut);font-weight:600}
+.bar{display:inline-block;vertical-align:middle;width:70px;height:6px;background:var(--tr);border-radius:4px;margin-left:8px;overflow:hidden}.bar i{display:block;height:100%;background:var(--ac)}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
+.fh{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}.fh h3{margin:0;font-size:16px}
+.bd{font-size:12px;padding:2px 10px;border-radius:99px;border:1px solid var(--bd);color:var(--mut)}.bd.ok{color:var(--ok);border-color:var(--ok)}.bd.bad{color:var(--bad);border-color:var(--bad)}
+.fg ul{margin:10px 0 0;padding-left:18px}.fg li{margin:5px 0;font-size:14px}
+.ok{color:var(--ok)}.bad{color:var(--bad)}
+.bs{display:flex;gap:4px;align-items:flex-end;height:140px}.b{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;min-width:0}.b em{font-style:normal;font-size:10px;color:var(--mut)}.tr{flex:1;width:100%;display:flex;align-items:flex-end}.tr i{display:block;width:100%;background:var(--ac);border-radius:3px 3px 0 0}.b small{font-size:10px;color:var(--mut);margin-top:4px;white-space:nowrap}
+.tabs{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}button.gh.on{background:var(--ac);color:#fff}
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}.tab{background:transparent;color:var(--mut);border:1px solid var(--bd)}.tab.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.fg ul.ob{list-style:none;padding:0;margin:8px 0 0}.fg .ob li{padding:6px 0 6px 8px;margin:0;border-top:1px solid var(--bd);border-left:3px solid transparent}.ob li.p{border-left-color:var(--ok)}.ob li.n{border-left-color:var(--bad)}.ob small{display:block;color:var(--mut);font-size:12px}
+.chips2{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.chip{background:transparent;color:var(--tx);border:1px solid var(--c);border-radius:99px;padding:5px 12px;font-size:13px}.chip.on{background:var(--c);color:#fff}.chip b{margin-left:4px}.chips2 .gh{padding:5px 12px;font-size:13px}
+.stk{width:100%;display:flex;flex-direction:column;min-height:3px}.stk i{display:flex;align-items:center;justify-content:center;font:600 10px/1 system-ui,sans-serif;color:#fff;overflow:hidden;font-style:normal}
+.rpg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}.rpg label.d{display:block}.rpg input,.rpg select{display:block;margin-top:4px}
+label.chk{display:block;margin:4px 0;font-size:14px;color:var(--tx)}.rpt{min-height:70px;font:14px/1.4 system-ui,sans-serif;margin-top:4px}
+#rpf{width:100%;height:560px;border:1px solid var(--bd);border-radius:8px;background:#fff;margin-top:12px}
+#toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);max-width:92vw;background:var(--cd);color:var(--tx);border:1px solid var(--bd);border-radius:10px;padding:10px 14px;box-shadow:0 8px 30px #0006;z-index:50;font-size:14px}#toast[hidden]{display:none}#toast a{color:var(--ac)}
+@media print{#toast,#bk,#rp,details,button,.tabs{display:none}}
+</style>
+</head>
+<body>
+<main>
+<h1>Dashboard de Embalagens</h1>
+<div class="tabs"><button class="tab on" data-m="prod">Produção</button><button class="tab" data-m="teste">Teste</button><button class="tab" data-m="mensal">Monitoramento mensal</button><button class="gh" id="rb" style="margin-left:auto">📄 Relatório do dia</button><button class="gh" id="bb">💾 Backup automático</button></div>
+<details id="dt" class="card" open><summary>Dados do histórico de pedidos</summary>
+<textarea id="t" placeholder="Cole aqui o HISTÓRICO DE PEDIDOS exportado do sistema..."></textarea>
+<div class="row"><button id="go">Gerar dashboard</button>
+<label class="d">Ignorar pausas acima de <input id="pz" type="number" value="30" min="1"> min</label></div>
+<div class="row"><label class="d">Arquivo do sistema <input type="file" id="fl" accept=".txt,.csv,text/plain"></label></div>
+<div class="row"><button class="gh" id="cb">Conectar ao sistema</button><span id="cs" class="d">Conectando ao sistema…</span></div>
+<div class="d" style="margin-top:6px">Os pedidos do campo <b>Embalagens</b> do seu sistema vão sozinhos para a aba <b>Produção</b>, e os de <b>Teste&amp;Conferência</b> para a aba <b>Teste</b>. A tela atualiza a cada novo registro.</div>
+<div id="err" class="err"></div></details>
+<div id="rp" class="card" hidden style="margin-top:14px"><h2 style="margin:0 0 4px;font-size:17px">Relatório do dia</h2><div class="d">Escolha o que entra no relatório, escreva as observações e baixe o arquivo (abre em qualquer navegador e pode ser impresso ou salvo em PDF).</div><div id="rpc"></div>
+<div class="row"><button onclick="rpPrev()">Pré-visualizar</button><button onclick="rpDownload()">Baixar relatório (.html)</button><button class="gh" onclick="rpPrint()">Imprimir / salvar PDF</button><button class="gh" onclick="$('rp').hidden=true">Fechar</button></div>
+<iframe id="rpf" hidden title="Pré-visualização do relatório"></iframe></div>
+<div id="bk" class="card" hidden style="margin-top:14px"><h2 style="margin:0 0 8px;font-size:17px">Backup automático</h2><div id="bkc"></div></div>
+<div id="out"></div>
+<div id="toast" hidden></div>
+</main>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const fmt=s=>{if(s==null||isNaN(s))return"–";s=Math.round(s);const m=Math.floor(s/60),r=s%60;return m?m+"min "+String(r).padStart(2,"0")+"s":r+"s"};
+const hm=s=>{const h=Math.floor(s/3600),m=Math.floor(s%3600/60),r=Math.round(s%60);return [h,m,r].map(x=>String(x).padStart(2,"0")).join(":")};
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const mean=a=>a.reduce((x,y)=>x+y,0)/a.length;
+const sd=a=>{const m=mean(a);return Math.sqrt(mean(a.map(x=>(x-m)**2)))};
+
+function parseBlocks(txt){
+  const recs=[],counts={};let pessoa=null,inSum=false;
+  txt.split(/\r?\n/).forEach(l=>{
+    l=l.trim();let m;
+    if(/^PEDIDOS POR PESSOA/i.test(l)){inSum=true;return}
+    if(inSum){m=l.match(/^(.+?):\s*(\d+)\s*pedido/i);if(m)counts[m[1].trim()]=+m[2];return}
+    if(m=l.match(/^Pessoa:\s*(.+)$/i)){pessoa=m[1].trim();return}
+    m=l.match(/^Data\/Hora:\s*(\d{1,2}\/\d{1,2}\/\d{2,4})\s+(\d{1,2}):(\d{2})(?::(\d{2}))?/i);
+    if(m&&pessoa){recs.push({name:pessoa,day:m[1],tod:(+m[2])*3600+(+m[3])*60+(+(m[4]||0))});pessoa=null}
+  });
+  return{recs,counts,bad:[]};
+}
+function parse(txt){
+  if(/^\s*Pessoa:|^PEDIDOS POR PESSOA/im.test(txt))return parseBlocks(txt);
+  const recs=[],counts={},bad=[];
+  const re=/(\d{1,2}\/\d{1,2}\/\d{2,4}|\d{4}-\d{2}-\d{2})?[\sT,;]*(\d{1,2}):(\d{2})(?::(\d{2}))?/;
+  txt.split(/\r?\n/).forEach(l=>{
+    l=l.trim();if(!l)return;
+    const m=l.match(re);
+    if(m){
+      let name=(l.slice(0,m.index)+" "+l.slice(m.index+m[0].length)).replace(/[;,\t|–\-]+/g," ").replace(/\s+/g," ").trim();
+      if(!name){bad.push(l);return}
+      recs.push({name,day:m[1]||"-",tod:(+m[2])*3600+(+m[3])*60+(+(m[4]||0))});
+    }else{
+      const c=l.match(/^(.+?)[\s:;,\t\-]+(\d+)$/);
+      if(c){const n=c[1].trim();counts[n]=(counts[n]||0)+ +c[2]}else bad.push(l);
+    }
+  });
+  return{recs,counts,bad};
+}
+
+function analyze(recs,counts,pause){
+  const P={};
+  recs.forEach(r=>{(P[r.name]=P[r.name]||{name:r.name,recs:[]}).recs.push(r)});
+  Object.keys(counts).forEach(n=>{if(!P[n])P[n]={name:n,recs:[],only:counts[n]}});
+  Object.values(P).forEach(p=>{
+    p.count=p.only??p.recs.length;
+    p.iv=[];
+    const byDay={};p.recs.forEach(r=>(byDay[r.day]=byDay[r.day]||[]).push(r));
+    let skipped=0;
+    Object.values(byDay).forEach(d=>{
+      d.sort((a,b)=>a.tod-b.tod);
+      for(let i=1;i<d.length;i++){
+        const v=d[i].tod-d[i-1].tod;
+        if(v>pause*60){skipped++;continue}
+        p.iv.push({v,from:d[i-1].tod,to:d[i].tod,day:d[i].day});
+      }
+    });
+    p.skipped=skipped;
+    if(p.iv.length){
+      const vs=p.iv.map(x=>x.v);
+      p.avg=mean(vs);p.sd=sd(vs);p.cv=p.sd/(p.avg||1);
+      p.fast=p.iv.reduce((a,b)=>b.v<a.v?b:a);
+      p.slow=p.iv.reduce((a,b)=>b.v>a.v?b:a);
+    }
+    if(p.recs.length){const t=p.recs.map(r=>r.tod);p.first=Math.min(...t);p.last=Math.max(...t)}
+  });
+  return Object.values(P);
+}
+
+function slowFlag(p,all){
+  if(p.avg==null||!p.iv.length)return{slow:false,idx:0,low:false};
+  const act=all.filter(x=>x.count>0),ta=mean(all.flatMap(x=>x.iv.map(i=>i.v))),mc=mean(act.map(x=>x.count));
+  const idx=p.iv.filter(i=>i.v>ta*1.2).length/p.iv.length,low=p.count<mc;
+  return{idx,low,slow:p.avg>=ta*1.1&&idx>=0.5&&low}}
+function feedback(p,team,all){
+  const f=[];const tot=all.reduce((a,x)=>a+x.count,0);
+  const sorted=[...all].sort((a,b)=>b.count-a.count);
+  const rank=sorted.findIndex(x=>x.name===p.name)+1;
+  const share=(p.count/tot*100).toFixed(1);
+  f.push(`<b>Volume:</b> ${p.count} embalagens (${share}% do total), ${rank}º de ${all.length} em quantidade.`);
+  if(p.avg==null){f.push(p.count===0?"Nenhum pedido registrado no período. Verificar se a pessoa estava alocada em outra atividade ou ausente.":"Há apenas "+p.count+" registro(s), insuficiente para calcular o tempo entre pedidos. Com mais registros o relatório trará ritmo e consistência.");return f}
+  const diff=(p.avg-team.avg)/team.avg*100;
+  if(all.length>1){
+    if(diff<=-10)f.push(`<span class="ok"><b>Ritmo:</b></span> tempo médio de ${fmt(p.avg)}, ${Math.abs(diff).toFixed(0)}% mais rápido que a média da equipe (${fmt(team.avg)}). Destaque positivo.`);
+    else if(diff>=10){const sf=slowFlag(p,all);f.push(sf.slow?`<span class="bad"><b>Ritmo:</b></span> tempo médio de ${fmt(p.avg)}, ${diff.toFixed(0)}% mais lento que a média da equipe (${fmt(team.avg)}), com poucas embalagens (${p.count}) e ${Math.round(sf.idx*100)}% delas acima do tempo esperado. Vale revisar o método de trabalho e possíveis gargalos.`:`<b>Ritmo:</b> tempo médio de ${fmt(p.avg)}, ${diff.toFixed(0)}% acima da média da equipe (${fmt(team.avg)}), mas ${sf.low?"sem padrão de demora (poucas embalagens lentas)":"com bom volume ("+p.count+" embalagens)"}. Não caracteriza lentidão.`)}
+    else f.push(`<b>Ritmo:</b> tempo médio de ${fmt(p.avg)}, em linha com a equipe (${fmt(team.avg)}).`);
+  }else f.push(`<b>Ritmo:</b> tempo médio de ${fmt(p.avg)} por embalagem.`);
+  f.push(`<b>Mais rápida:</b> ${fmt(p.fast.v)} (concluída às ${hm(p.fast.to)}). <b>Mais demorada:</b> ${fmt(p.slow.v)} (às ${hm(p.slow.to)}).`);
+  const ratio=p.slow.v/(p.fast.v||1);
+  if(p.cv<=0.35)f.push(`<span class="ok"><b>Consistência:</b></span> alta. Variação baixa entre as embalagens (desvio de ${fmt(p.sd)}), ritmo estável.`);
+  else if(p.cv<=0.7)f.push(`<b>Consistência:</b> moderada (desvio de ${fmt(p.sd)}). A mais lenta levou ${ratio.toFixed(1)}x a mais que a mais rápida.`);
+  else f.push(`<span class="bad"><b>Consistência:</b></span> baixa (desvio de ${fmt(p.sd)}). Há grande oscilação entre as embalagens; investigar causas como falta de material, interrupções ou itens mais complexos.`);
+  if(p.first!=null)f.push(`<b>Período:</b> primeiro registro às ${hm(p.first)} e último às ${hm(p.last)}.`);
+  if(p.skipped)f.push(`${p.skipped} intervalo(s) acima do limite de pausa foram desconsiderados no cálculo (provavelmente pausas).`);
+  if(p.iv.length<5)f.push("<i>Poucos registros: a análise tem baixa confiabilidade estatística.</i>");
+  const tips=[];
+  if(diff>=10&&slowFlag(p,all).slow)tips.push("Meta sugerida: aproximar o tempo médio de "+fmt(team.avg)+" observando o fluxo de quem tem melhor ritmo.");
+  if(p.cv>0.7)tips.push("Padronizar a organização do posto de trabalho para reduzir as oscilações.");
+  if(diff<=-10&&p.cv<=0.5)tips.push("Bom candidato a referência/treinamento dos demais.");
+  if(!tips.length)tips.push("Manter o desempenho atual e acompanhar a evolução nos próximos relatórios.");
+  f.push("<b>Recomendação:</b> "+tips.join(" "));
+  return f;
+}
+
+const nm=n=>n.replace(/^N[º°o]?\s*\d+\s*-\s*/i,"").replace(/\b\w/g,c=>c.toUpperCase());
+const badge=(p,t,a)=>{if(p.count===0)return["Sem pedidos",""];if(p.avg==null)return["Poucos dados",""];const d=(p.avg-t.avg)/t.avg*100;if(d<=-10)return["Mais rápido que a equipe","ok"];if(d>=10)return slowFlag(p,a).slow?["Mais lento que a equipe","bad"]:["Ritmo acima da média, sem lentidão",""];return["Na média da equipe",""]};
+const kpi=(k,v,d,c)=>`<div class="card"><div class="k">${k}</div><div class="v" style="color:${c||"inherit"}">${v}</div><div class="d">${d}</div></div>`;
+let HF=null;const HC=["#2563eb","#d97706","#16a34a","#9333ea","#dc2626","#0891b2","#be185d","#65a30d"];
+const hhmm=s=>hm(s).slice(0,5);
+function hfHtml(){
+ const H=HF,N=H.names.length,sel=[...Array(N).keys()].filter(i=>H.sel.has(i));
+ const lo=Math.max(0,Math.floor((H.from-H.t0)/H.st)),hi=Math.min(H.n-1,Math.floor((H.to+59-H.t0)/H.st)),bins=[];for(let b=lo;b<=hi;b++)bins.push(b);
+ const cnt=H.r.map(z=>{const o=Array(H.n).fill(0);z.forEach(x=>{if(x>=H.from&&x<H.to+60)o[Math.floor((x-H.t0)/H.st)]++});return o});
+ const tot=cnt.map(z=>z.reduce((a,b)=>a+b,0)),cols=bins.map(b=>sel.reduce((s,i)=>s+cnt[i][b],0)),m=Math.max(1,...cols),sum=cols.reduce((a,b)=>a+b,0),k=cols.indexOf(Math.max(...cols)),ev=Math.ceil(bins.length/8)||1;
+ let h='<div class="card"><div class="chips2">'+H.names.map((n,i)=>`<button class="chip${H.sel.has(i)?" on":""}" style="--c:${HC[i%8]}" onclick="hfTog(${i})">${esc(nm(n))} <b>${tot[i]}</b></button>`).join("")+'<button class="gh" onclick="hfAll(1)">Todos</button><button class="gh" onclick="hfAll(0)">Nenhum</button></div>';
+ h+=`<div class="chips2"><label class="d">Início <input type="time" value="${hhmm(H.from)}" onchange="hfTime(0,this.value)"></label><label class="d">Fim <input type="time" value="${hhmm(H.to)}" onchange="hfTime(1,this.value)"></label><button class="gh" onclick="hfReset()">Período todo</button></div>`;
+ h+=`<div class="bs">${bins.map((b,j)=>`<div class="b"><em>${cols[j]||""}</em><div class="tr"><div class="stk" style="height:${cols[j]/m*100}%">${sel.filter(i=>cnt[i][b]).map(i=>`<i style="flex:${cnt[i][b]};background:${HC[i%8]}" title="${esc(nm(H.names[i]))}: ${cnt[i][b]}">${cnt[i][b]}</i>`).join("")}</div></div><small>${j%ev===0?hhmm(H.t0+b*H.st):"&nbsp;"}</small></div>`).join("")}</div>`;
+ h+=`<div class="d" style="margin-top:8px">Faixas de ${H.unit}. Cada cor é uma pessoa; o número no topo é o total das pessoas selecionadas.</div></div>`;
+ h+='<div class="kp">'+kpi("Total selecionado",sum,(sel.length?sel.length+" de "+N+" pessoa(s)":"Nenhuma pessoa selecionada")+" · "+hhmm(H.from)+" às "+hhmm(H.to))+(sum?kpi("Pico da seleção",hhmm(H.t0+bins[k]*H.st),cols[k]+" pedido(s) na faixa")+kpi("Média por faixa",(sum/bins.length).toFixed(1),"pedidos por faixa de "+H.unit):"")+"</div>";
+ return h}
+function hfDraw(){$("hfw").innerHTML=hfHtml()}
+function hfTog(i){HF.sel.has(i)?HF.sel.delete(i):HF.sel.add(i);hfDraw()}
+function hfAll(v){HF.sel=new Set(v?HF.names.map((_,i)=>i):[]);hfDraw()}
+function hfTime(w,v){if(!v)return;const[h,m]=v.split(":"),x=h*3600+m*60;HF[w?"to":"from"]=x;if(HF.to<HF.from){if(w)HF.from=x;else HF.to=x}hfDraw()}
+function hfReset(){HF.from=HF.f0;HF.to=HF.f1;hfDraw()}
+function testView(recs,people){
+ if(!recs.length)return'<p class="d" style="margin-top:14px">O filtro de horário precisa de horários nos registros.</p>';
+ const spanSum=rs=>{const d={};rs.forEach(r=>(d[r.day]=d[r.day]||[]).push(r.tod));return Object.values(d).reduce((a,x)=>a+Math.max(...x)-Math.min(...x),0)};
+ const t=recs.map(r=>r.tod),mn=Math.min(...t),mx=Math.max(...t),sp=mx-mn,st=sp<=1800?60:sp<=14400?600:3600;
+ const a=Math.floor(mn/st),n=Math.floor(mx/st)-a+1,c=Array(n).fill(0);
+ t.forEach(x=>c[Math.floor(x/st)-a]++);
+ const m=Math.max(...c),k=c.indexOf(m),lab=i=>hm((a+i)*st).slice(0,5),ts=spanSum(recs),ev=Math.ceil(n/8);
+ let gap=null;const dd={};recs.forEach(r=>(dd[r.day]=dd[r.day]||[]).push(r.tod));
+ Object.values(dd).forEach(x=>{x.sort((p,q)=>p-q);for(let i=1;i<x.length;i++)if(!gap||x[i]-x[i-1]>gap.v)gap={v:x[i]-x[i-1],f:x[i-1],t:x[i]}});
+ const rows=people.filter(p=>p.recs.length).map(p=>{const s=spanSum(p.recs);return{p,s,r:s>0?p.recs.length/(s/3600):null}}).sort((x,y)=>(y.r??-1)-(x.r??-1));
+ const mr=Math.max(1,...rows.map(x=>x.r||0)),best=rows.find(x=>x.r!=null),unit=st==60?"1 minuto":st==600?"10 minutos":"1 hora";
+ let h='<div class="kp">'+kpi("Pedidos por hora",ts>0?(recs.length/(ts/3600)).toFixed(1):"–","equipe, no período ativo")+kpi("Horário de pico",lab(k),m+" pedido(s) na faixa")+kpi("Período analisado",lab(0)+" – "+hm(mx).slice(0,5),"primeiro ao último registro")+kpi("Maior pausa da equipe",gap?fmt(gap.v):"–",gap?"entre "+hm(gap.f).slice(0,5)+" e "+hm(gap.t).slice(0,5):"sem dados")+'</div>';
+ const pp=people.filter(p=>p.recs.length).sort((x,y)=>y.recs.length-x.recs.length);
+ HF={names:pp.map(p=>p.name),r:pp.map(p=>p.recs.map(r=>r.tod)),t0:a*st,st,n,from:Math.floor(mn/60)*60,to:Math.floor(mx/60)*60,f0:Math.floor(mn/60)*60,f1:Math.floor(mx/60)*60,unit,sel:new Set(pp.map((_,i)=>i))};
+ h+='<h2>Pedidos por faixa de horário</h2><div id="hfw">'+hfHtml()+'</div>';
+ h+='<h2>Produtividade por pessoa</h2><div class="card tw"><table><tr><th>Nome</th><th>Pedidos</th><th>Tempo ativo</th><th>Pedidos/hora</th><th>Pausas longas</th></tr>'+rows.map(({p,s,r})=>`<tr><td>${esc(nm(p.name))}</td><td>${p.recs.length}</td><td>${s?fmt(s):"–"}</td><td>${r!=null?r.toFixed(1):"–"}<span class="bar"><i style="width:${(r||0)/mr*100}%"></i></span></td><td>${p.skipped}</td></tr>`).join("")+'</table></div>';
+ h+=`<h2>Leitura rápida</h2><div class="card"><ul style="margin:0;padding-left:18px"><li>${best?`<b>Mais produtivo por hora:</b> ${esc(nm(best.p.name))}, com ${best.r.toFixed(1)} pedidos/hora.`:"Poucos registros para medir produtividade por hora."}</li><li><b>Pico:</b> faixa das ${lab(k)}, com ${m} pedido(s) (${(m/recs.length*100).toFixed(0)}% do total).</li>${gap&&gap.v>=300?`<li><b>Maior parada da equipe:</b> ${fmt(gap.v)}, entre ${hm(gap.f).slice(0,5)} e ${hm(gap.t).slice(0,5)}.</li>`:""}</ul></div>`;
+ return h}
+function renderProd(){
+  $("err").textContent="";
+  const {recs,counts}=parse($("t").value);
+  if(!recs.length&&!Object.keys(counts).length){$("err").textContent="Nenhum dado reconhecido. Cole o histórico de pedidos completo.";$("out").innerHTML="";return}
+  const people=analyze(recs,counts,+$("pz").value||30);
+  const ivs=people.flatMap(p=>p.iv.map(x=>({...x,name:p.name})));
+  const total=people.reduce((a,p)=>a+p.count,0),rk=[...people].sort((a,b)=>b.count-a.count),mc=Math.max(1,rk[0].count),team={};
+  let h='<div class="kp">'+kpi("Total de pedidos",total,people.length+" pessoa(s)");
+  if(ivs.length){
+    team.avg=mean(ivs.map(x=>x.v));
+    const f=ivs.reduce((a,b)=>b.v<a.v?b:a),s=ivs.reduce((a,b)=>b.v>a.v?b:a);
+    h+=kpi("Tempo médio",fmt(team.avg),"entre pedidos, equipe toda")
+      +kpi("Mais rápida",fmt(f.v),esc(nm(f.name))+" às "+hm(f.to).slice(0,5),"var(--ok)")
+      +kpi("Mais demorada",fmt(s.v),esc(nm(s.name))+" às "+hm(s.to).slice(0,5),"var(--bad)");
+  }else h+=kpi("Tempo médio","–","Poucos registros para calcular");
+  h+='</div><h2>Desempenho por pessoa</h2><div class="card tw"><table><tr><th>Nome</th><th>Pedidos</th><th>Tempo médio</th><th>Mais rápida</th><th>Mais demorada</th></tr>';
+  rk.forEach(p=>{h+=`<tr><td>${esc(nm(p.name))}</td><td>${p.count}<span class="bar"><i style="width:${p.count/mc*100}%"></i></span></td><td>${fmt(p.avg)}</td><td>${fmt(p.fast?.v)}</td><td>${fmt(p.slow?.v)}</td></tr>`});
+  h+='</table></div><h2>Feedback individual</h2><div class="fg">';
+  rk.forEach(p=>{const[b,c]=badge(p,team,people);h+=`<div class="card"><div class="fh"><h3>${esc(nm(p.name))}</h3><span class="bd ${c}">${b}</span></div><ul>${feedback(p,team,people).map(x=>"<li>"+x+"</li>").join("")}</ul></div>`});
+  h+="</div>";
+  $("out").innerHTML=`<div class="tabs"><button class="gh on" data-v="a">Dashboard padrão</button><button class="gh" data-v="b">Filtro de horário</button></div><div id="va">${h}</div><div id="vb" hidden>${testView(recs,people)}</div>`;
+  $("out").querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{$("out").querySelectorAll(".tabs button").forEach(x=>x.classList.toggle("on",x===b));$("va").hidden=b.dataset.v!=="a";$("vb").hidden=b.dataset.v!=="b"});$("dt").open=false;if(!AUTO)$("out").scrollIntoView({behavior:"smooth"});
+}
+const NORM=s=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+const TH=[["Erros e qualidade",-1,/errad|erro|incorret|troc(ou|ar|a)\b|faltou|esquec|danific|quebr|retrabalh|devolv/g],["Lentidão",-1,/atras|demor|lent[oa]|devagar/g],["Dúvidas e orientação",-1,/duvid|pergunt|orienta|precisou de ajuda|dificuldad|confus|insegur|nao soub/g],["Desatenção",-1,/distra|desatent|celular|conversa/g],["Agilidade",1,/rapid|agil|veloz|ligeir/g],["Qualidade e capricho",1,/otim|excelen|\bcorret|caprich|atencios|organiz|perfeit|cuidados|bem feit|parabe|\bbo[ma]\b/g]];
+const RC={"Erros e qualidade":"reforçar a conferência dos itens antes de finalizar cada pedido","Lentidão":"treinar a organização do posto de trabalho para ganhar ritmo","Dúvidas e orientação":"acompanhar de perto e reforçar o treinamento nos pontos em que surgiram dúvidas","Desatenção":"reforçar a importância do foco durante a operação"};
+function classify(o,skip){const n=NORM(o),hits=[];let ign=0;TH.forEach(([t,s,re])=>{let m;re.lastIndex=0;while((m=re.exec(n))){const ng=/(nao|sem|nunca) $/.test(n.slice(Math.max(0,m.index-6),m.index));{const pl=ng?-s:s;if(skip&&t==="Lentidão"&&pl<0)ign++;else hits.push({t,pol:pl})}}});const sc=hits.reduce((a,h)=>a+h.pol,0);return{hits,ign,k:sc>0?"p":sc<0?"n":"x"}}
+function parseObs(txt){const rows=[],counts={};let cur=null,inSum=false;
+ const flush=()=>{if(cur&&cur.name)rows.push(cur);cur=null};
+ txt.split(/\r?\n/).forEach(l=>{l=l.trim();let m;
+  if(/^PEDIDOS POR PESSOA/i.test(l)){flush();inSum=true;return}
+  if(inSum){m=l.match(/^(.+?):\s*(\d+)\s*pedido/i);if(m)counts[m[1].trim()]=+m[2];return}
+  if(m=l.match(/^(?:\d+\.\s*)?Pedido:\s*(.+)$/i)){flush();cur={ped:m[1].trim(),obs:""};return}
+  if(!cur)return;
+  if(m=l.match(/^Pessoa:\s*(.+)$/i)){cur.name=m[1].trim();return}
+  if(m=l.match(/^Data\/Hora:\s*(\d{1,2}\/\d{1,2}\/\d{2,4})\s+(\d{1,2}):(\d{2})(?::(\d{2}))?/i)){cur.day=m[1];cur.tod=(+m[2])*3600+(+m[3])*60+(+(m[4]||0));return}
+  if(m=l.match(/^Observa[çc][ãa]o:\s*(.*)$/i)){const o=m[1].trim();cur.obs=/^\(?\s*sem observa/i.test(o)?"":o}
+ });flush();return{rows,counts}}
+function fbTest(p,avg,tavg){
+ const f=[],pc=p.ord?Math.round(p.obs.length/p.ord*100):0;
+ if(!p.ord)return["Nenhum pedido registrado no teste."];
+ f.push(`<b>Volume:</b> ${p.ord} pedido(s) no teste, ${p.obs.length} com observação (${pc}%).`);
+ if(avg!=null)f.push(`<b>Tempo médio entre pedidos:</b> ${fmt(avg)}${tavg?` (equipe: ${fmt(tavg)})`:""}.`);
+ if(!p.obs.length){f.push("<b>Observações:</b> nenhuma registrada pelo responsável. Recomenda-se anotar o que foi observado durante o teste para uma avaliação mais completa.");return f}
+ if(p.ign)f.push(`<b>Lentidão:</b> ${p.ign} menção(ões) de demora, mas sem padrão de lentidão (bom volume ou poucas embalagens lentas), por isso não foram destacadas.`);
+ const th=Object.entries(p.th).sort((a,b)=>b[1]-a[1]);
+ const tn={};th.forEach(([k,n])=>{const t=k.split("|")[0];tn[t]=(tn[t]||0)+n});
+ if(th.length)f.push("<b>Temas citados:</b> "+Object.entries(tn).map(([t,n])=>`${t}${n>1?" ×"+n+" (recorrente)":""}`).join(" · "));
+ const rc=[...new Set(th.filter(([k])=>k.endsWith("|-1")).map(([k])=>RC[k.split("|")[0]]))];
+ f.push("<b>Recomendação:</b> "+(rc.length?rc.join("; ")+".":"manter o desempenho e acompanhar nos próximos registros."));
+ return f}
+function renderTeste(){
+ $("err").textContent="";
+ const{rows,counts}=parseObs($("t").value);
+ if(!rows.length&&!Object.keys(counts).length){$("err").textContent="Nenhum dado reconhecido. Cole o histórico do teste completo, com Pessoa, Data/Hora e Observação.";$("out").innerHTML="";return}
+ const tm=analyze(rows.filter(r=>r.tod!=null),{},+$("pz").value||30),av={};tm.forEach(p=>av[p.name]=p.avg);const sl={};tm.forEach(p=>sl[p.name]=slowFlag(p,tm).slow);
+ const pm={},get=n=>pm[n]||(pm[n]={name:n,ord:0,obs:[],pos:0,neg:0,neu:0,th:{}});
+ rows.forEach(r=>{const p=get(r.name);p.ord++;if(r.obs){const c=classify(r.obs,av[r.name]!=null&&!sl[r.name]);p.ign=(p.ign||0)+c.ign;p.obs.push({...r,k:c.k});p[c.k==="p"?"pos":c.k==="n"?"neg":"neu"]++;c.hits.forEach(h=>{const k=h.t+"|"+(h.pol>0?1:-1);p.th[k]=(p.th[k]||0)+1})}});
+ Object.keys(counts).forEach(n=>get(n));
+ 
+ const all=tm.flatMap(p=>p.iv.map(x=>x.v)),tavg=all.length?mean(all):null;
+ const ps=Object.values(pm).sort((a,b)=>b.ord-a.ord),sum=k=>ps.reduce((a,p)=>a+p[k],0),tot=sum("ord"),wo=ps.reduce((a,p)=>a+p.obs.length,0);
+ const ta={};ps.forEach(p=>Object.entries(p.th).forEach(([k,n])=>ta[k]=(ta[k]||0)+n));
+ let h='<div class="kp">'+kpi("Pedidos testados",tot,ps.length+" pessoa(s)")+kpi("Com observação",wo,(tot?Math.round(wo/tot*100):0)+"% dos pedidos")+"</div>";
+ const tt={};Object.entries(ta).forEach(([k,n])=>{const t=k.split("|")[0];tt[t]=(tt[t]||0)+n});const te=Object.entries(tt).sort((a,b)=>b[1]-a[1]);
+ if(te.length)h+='<h2>Temas mais citados</h2><div class="card"><div class="chips">'+te.map(([t,n])=>`<span class="bd">${t} ×${n}</span>`).join("")+"</div></div>";
+ h+='<h2>Resumo por pessoa</h2><div class="card tw"><table><tr><th>Nome</th><th>Pedidos</th><th>Observações</th><th>Tempo médio</th></tr>'+ps.map(p=>`<tr><td>${esc(nm(p.name))}</td><td>${p.ord}</td><td>${p.obs.length}</td><td>${fmt(av[p.name])}</td></tr>`).join("")+'</table></div><h2>Relatório de observações do teste</h2><div class="fg">';
+ ps.forEach(p=>{
+  h+=`<div class="card"><div class="fh"><h3>${esc(nm(p.name))}</h3><span class="bd">${p.obs.length} observação(ões)</span></div><ul>${fbTest(p,av[p.name],tavg).map(x=>"<li>"+x+"</li>").join("")}</ul>`
+  +(p.obs.length?`<details open><summary class="d">Observações do responsável (${p.obs.length})</summary><ul class="ob">${p.obs.map(o=>`<li><small>Pedido ${esc(o.ped)}${o.tod!=null?" · "+o.day+" "+hm(o.tod).slice(0,5):""}</small>${esc(o.obs)}</li>`).join("")}</ul></details>`:"")+"</div>"});
+ $("out").innerHTML=h+"</div>";$("dt").open=false;if(!AUTO)$("out").scrollIntoView({behavior:"smooth"});
+}
+function render(){return mode==="prod"?renderProd():mode==="mensal"?renderMensal():renderTeste()}
+let mode="prod";const store={prod:{t:"",o:""},teste:{t:"",o:""}};
+const PH={prod:"Cole aqui o HISTÓRICO DE PEDIDOS exportado do sistema...",teste:"Cole aqui o HISTÓRICO DE PEDIDOS do teste, com a Observação de cada pedido..."};
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
+ store[mode].t=$("t").value;store[mode].o=$("out").innerHTML;mode=b.dataset.m;
+ document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===b));
+ $("t").value=store[mode].t;$("t").placeholder=PH[mode];$("out").innerHTML=store[mode].o;$("err").textContent="";$("dt").open=!store[mode].o;
+ $("dt").querySelector("summary").textContent=mode==="prod"?"Dados do histórico de pedidos":"Dados do teste (com observações)";
+ $("go").textContent=mode==="prod"?"Gerar dashboard":"Gerar relatório do teste";$("dt").hidden=mode==="mensal";if(mode==="mensal")renderMensal();else if(FBD)cloudApply(true)});
+let AUTO=false,timer=null;
+function snap(){if(mode!=="prod"||!HF)return null;return{names:HF.names,sel:HF.names.filter((_,i)=>HF.sel.has(i)),cus:[HF.from!==HF.f0?HF.from:null,HF.to!==HF.f1?HF.to:null],test:!!$("vb")&&!$("vb").hidden}}
+function restore(k){if(!k||mode!=="prod"||!HF)return;
+ HF.sel=new Set(HF.names.map((n,i)=>(k.sel.includes(n)||!k.names.includes(n))?i:-1).filter(i=>i>=0));
+ if(k.cus[0]!=null)HF.from=Math.min(k.cus[0],HF.f1);if(k.cus[1]!=null)HF.to=Math.max(k.cus[1],HF.from);
+ if(k.test){const b=$("out").querySelectorAll(".tabs button")[1];if(b)b.click()}
+ if($("hfw"))hfDraw()}
+$("fl").onchange=async e=>{const f=e.target.files[0];if(!f)return;$("t").value=await f.text();render();e.target.value=""};
+const ARQP="relatorioArquivo";
+let ARQ={},REM={},FBBD=null,FBBR=false,ARQERR=false,fbRefB=null,fbRefA=null,MS={m:"",tp:"all",st:"all",q:""};
+try{ARQ=JSON.parse(localStorage.getItem("relArq")||"{}")||{}}catch(e){ARQ={}}
+store.mensal={t:"",o:""};
+const sj=o=>JSON.stringify(o,Object.keys(o).sort());
+const isoBR=s=>{const m=String(s||"").match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);return m?m[3]+"-"+m[2].padStart(2,"0")+"-"+m[1].padStart(2,"0"):""};
+const todBR=s=>{const m=String(s||"").match(/(\d{1,2}):(\d{2})/);return m?m[1]*3600+m[2]*60:0};
+const nowBR=()=>{const d=new Date();return d.toLocaleDateString("pt-BR")+" "+d.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})};
+const sortK=e=>(e.dia||"")+" "+hhmm(todBR(e.dataHora));
+function arqSave(){try{localStorage.setItem("relArq",JSON.stringify(ARQ))}catch(e){}}
+function arqMerge(src){Object.keys(src||{}).forEach(k=>{const n=src[k];if(!n||typeof n!=="object"||DEL[k]||zcCov(n))return;const o=ARQ[k];if(!o||(n.u||0)>(o.u||0))ARQ[k]={...n}})}
+function arqPush(){
+ if(typeof firebase==="undefined"||ARQERR||!fbRef)return;
+ const w={};Object.keys(ARQ).forEach(k=>{if(DEL[k]||zcCov(ARQ[k]))return;if(!REM[k]||sj(REM[k])!==sj(ARQ[k]))w[k]=ARQ[k]});
+ if(!Object.keys(w).length)return;
+ try{firebase.database().ref(ARQP).update(JSON.parse(JSON.stringify(w))).catch(()=>{ARQERR=true;arqStatus()})}catch(e){ARQERR=true}}
+function arqStatus(){const el=$("ast");if(!el)return;const n=Object.keys(ARQ).length,g=Object.values(ARQ).filter(e=>e.gone).length;
+ el.textContent=`🗄 ${n} registro(s) guardados · ${g} excluído(s) do sistema · `+(!fbRef?"💾 só neste navegador (desconectado)":ARQERR?"💾 só neste navegador (sem permissão para gravar na nuvem)":"☁️ também guardado na nuvem")}
+function arqSync(){
+ if(!FBD)return;
+ const L=x=>(Array.isArray(x)?x:Object.values(x||{})).filter(Boolean),cur={},now=Date.now();
+ ["embalagens","teste"].forEach(g=>L(FBD.historico&&FBD.historico[g]).forEach(r=>{cur[g[0].toUpperCase()+"_"+r.pedido+"_"+String(r.dataHora).replace(/\D/g,"")]={t:g[0].toUpperCase(),pedido:r.pedido,pessoa:"Nº "+r.numeroPessoa+" - "+r.nome,dataHora:String(r.dataHora||""),dia:isoBR(r.dataHora),obs:String(r.observacao||"")}}));
+ if(FBBR)Object.values(FBBD||{}).forEach(b=>{if(!b||b.pedido===undefined)return;cur["B_"+b.pedido]={t:"B",pedido:b.pedido,campo:b.campo||"",...(b.flex===true?{flex:true}:{}),dataHora:b.dataHora||"",dia:b.dia||isoBR(b.dataHora),cancelado:!!b.cancelado,canceladoEm:b.canceladoEm||""}});
+ Object.keys(cur).forEach(k=>{if(DEL[k]||zcCov(cur[k])){delete cur[k];return}const o=ARQ[k],n={...cur[k],seen:(o&&o.seen)||now,gone:false,goneEm:"",u:0};
+  if(o&&sj({...o,u:0})===sj(n)){return}n.u=now;ARQ[k]=n});
+ Object.keys(ARQ).forEach(k=>{const e=ARQ[k];if(cur[k]||e.gone)return;if(e.t==="B"&&!FBBR)return;ARQ[k]={...e,gone:true,goneEm:nowBR(),u:now}});
+ arqSave();arqPush();arqStatus();if(mode==="mensal")renderMensal()}
+const isFx=e=>e.flex===true||e.campo==="flex";
+const cpl=e=>(CPN[e.campo]||e.campo)+(e.flex===true&&e.campo!=="flex"?" ⚡ Flex":"");
+const CPN={maria:"MARIA",roberto:"ROBERTO",ports1:"PORTS 1",ports2:"PORTS 2",importes1:"PORTS 1",importes2:"PORTS 2",flex:"FLEX",gold:"GOLD"};
+const TPN={B:"Impressos(&bipado)",T:"Teste&Conferência",E:"Embalagem"};
+const mlabel=m=>{const[y,mm]=m.split("-"),s=new Date(+y,+mm-1,1).toLocaleDateString("pt-BR",{month:"long",year:"numeric"});return s.charAt(0).toUpperCase()+s.slice(1)};
+const sitOf=e=>e.gone?"gone":e.cancelado?"canc":"ok";
+const sitLabel=e=>e.gone?`<span class="bad">🗑 Excluído do sistema${e.goneEm?" em "+esc(e.goneEm):""}</span>`:e.cancelado?`<span class="bad">❌ Cancelado${e.canceladoEm?" em "+esc(e.canceladoEm):""}</span>`:'<span class="ok">✅ Ativo</span>';
+let BKDIR=null,BKST="none",BKLAST="";
+function idb(){return new Promise((res,rej)=>{const r=indexedDB.open("relBkDir",1);r.onupgradeneeded=()=>r.result.createObjectStore("h");r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+async function dirGet(){try{const db=await idb();return await new Promise(res=>{const q=db.transaction("h").objectStore("h").get("root");q.onsuccess=()=>res(q.result||null);q.onerror=()=>res(null)})}catch(e){return null}}
+async function dirSet(h){try{const db=await idb();await new Promise((res,rej)=>{const t=db.transaction("h","readwrite");t.objectStore("h").put(h,"root");t.oncomplete=res;t.onerror=rej})}catch(e){}}
+function bkLabel(){const b=$("bb");if(b)b.textContent=BKST==="need"?"💾 Backup automático ⚠":"💾 Backup automático"}
+async function dirReady(ask){
+ if(!BKDIR)BKDIR=await dirGet();
+ if(!BKDIR){BKST="none";bkLabel();return null}
+ try{let p=await BKDIR.queryPermission({mode:"readwrite"});if(p!=="granted"&&ask)p=await BKDIR.requestPermission({mode:"readwrite"});BKST=p==="granted"?"ok":"need"}catch(e){BKST="need"}
+ bkLabel();return BKST==="ok"?BKDIR:null}
+async function dirCheck(){await dirReady(false)}
+async function dirSave(name,data,sub){
+ try{const d=await dirReady(false);if(!d)return false;
+  const sd=await d.getDirectoryHandle(sub||"Outros",{create:true}),n=new Date(),st=[n.getHours(),n.getMinutes(),n.getSeconds()].map(v=>String(v).padStart(2,"0")).join("");
+  const fname=name.replace(/(\.[^.]+)$/,"_"+st+"$1"),fh=await sd.getFileHandle(fname,{create:true}),w=await fh.createWritable();
+  await w.write(data);await w.close();BKLAST="📁 Salvo na pasta de backup: "+(sub||"Outros")+"/"+fname;return true}
+ catch(e){return false}}
+async function bkPick(){
+ if(!window.showDirectoryPicker){bkMsg="Este navegador não permite escolher pasta. Use o Chrome ou o Edge no computador.";bkUi();return}
+ try{const parent=await showDirectoryPicker({mode:"readwrite",id:"relatorio-backup"});
+  BKDIR=await parent.getDirectoryHandle("Backup Relatorio Embalagens",{create:true});await dirSet(BKDIR);BKST="ok";bkLabel();
+  bkMsg="📁 Pasta definida: "+parent.name+" / Backup Relatorio Embalagens"}
+ catch(e){if(e.name!=="AbortError")bkMsg="Não foi possível usar essa pasta ("+e.message+"). Crie uma pasta nova (por exemplo, Backups dentro de Documentos) e escolha ela."}
+ bkUi()}
+async function bkReact(){await dirReady(true);bkUi()}
+async function bkUnset(){BKDIR=null;BKST="none";await dirSet(null);bkLabel();bkMsg="Pasta removida. Os backups voltam a ir para a pasta Downloads.";bkUi()}
+function bkDirUi(){
+ const st=BKST==="ok"?'<span class="ok">✅ ativa</span>':BKST==="need"?'<span class="bad">⚠ precisa ser reativada nesta sessão do navegador</span>':"não definida";
+ return `<div class="card" style="margin-top:12px"><b>📁 Pasta de backup no computador</b> — ${st}<div class="d" style="margin-top:4px">Todos os backups, automáticos e manuais, são salvos nela e organizados em subpastas: Diario - Producao, Mensal, Backup completo, Backup antes de zerar e Relatorios do dia. Sem pasta definida, os arquivos vão para a pasta Downloads do navegador.</div>${BKLAST?`<div class="d">${esc(BKLAST)}</div>`:""}<div class="row"><button onclick="bkPick()">Escolher pasta</button>${BKST==="need"?'<button onclick="bkReact()">Reativar pasta</button>':""}${BKDIR?'<button class="gh" onclick="bkUnset()">Remover pasta</button>':""}</div></div>`}
+setTimeout(dirCheck,1500);
+let toastT=null;
+function toast(html,ms){const t=$("toast");t.innerHTML=html;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>{t.hidden=true},ms||5000)}
+async function dlSave(name,data,mime,sub){
+ if(BKDIR){const ok=await dirSave(name,data,sub);if(ok){toast("📁 "+esc(BKLAST.replace("📁 ","")),7000);return true}}
+ let dl=null;try{dl=window.claude?await claude.use("downloads"):null}catch(e){}
+ if(dl){try{await dl.save({filename:name,data});toast("✅ Arquivo enviado para download: "+esc(name));return true}catch(e){toast(e&&e.code==="declined"?"Download cancelado.":"⚠️ Não foi possível baixar ("+esc((e&&e.code)||"erro")+").");return false}}
+ try{const url=URL.createObjectURL(new Blob([data],{type:mime})),a=document.createElement("a");a.href=url;a.download=name;a.style.display="none";document.body.appendChild(a);a.click();setTimeout(()=>a.remove(),1000);
+  toast(`⬇️ Download iniciado: ${esc(name)}. Se não baixou, <a href="${url}" download="${esc(name)}">clique aqui</a>.${BKST==="need"?" A pasta de backup precisa ser reativada.":""}`,20000);return true}
+ catch(e){toast("⚠️ Não foi possível baixar: "+esc(e.message));return false}}
+const monthE=()=>Object.keys(ARQ).filter(k=>(ARQ[k].dia||"").startsWith(MS.m)).map(k=>({...ARQ[k],k}));
+function renderMensal(){
+ const pw0=$("msp")?$("msp").value:"";
+ const all=Object.values(ARQ),months=[...new Set(all.map(e=>(e.dia||"").slice(0,7)).filter(Boolean))].sort().reverse();
+ if(!months.includes(MS.m))MS.m=months[0]||"";
+ const bk=`<div class="row"><button class="gh" onclick="msBackup()">Backup completo (.json)</button><label class="d">Restaurar backup <input type="file" accept=".json" onchange="msRestore(this)"></label></div>${MS.rm?`<div class="d" style="margin-top:6px">${esc(MS.rm)}</div>`:""}`;
+ let h=`<div class="card" style="margin-top:14px"><div class="fh"><h3 style="margin:0;font-size:17px">Monitoramento mensal</h3><span id="ast" class="d"></span></div><div class="d" style="margin-top:6px">Tudo o que passa pelo sistema é guardado aqui, mesmo que depois seja excluído ou cancelado lá. Os registros excluídos ficam marcados com 🗑.</div>${bk}${months.length?msZeroUi():""}</div>`;
+ if(!months.length){$("out").innerHTML=h+'<div class="card" style="margin-top:14px"><p class="d" style="margin:0">Ainda não há registros guardados. Conecte ao sistema (na aba Produção ou Teste); os registros passam a ser guardados automaticamente.</p></div>';arqStatus();return}
+ const E=monthE(),n=(t,f)=>E.filter(e=>e.t===t&&(!f||f(e))).length,pz=+$("pz").value||30;
+ h+=`<div class="rpg"><label class="d">Mês<select onchange="MS.m=this.value;renderMensal()">${months.map(m=>`<option value="${m}"${m===MS.m?" selected":""}>${mlabel(m)}</option>`).join("")}</select></label></div>`;
+ h+='<div class="kp">'+kpi("Pedidos bipados",n("B",e=>!e.cancelado),"sem cancelados")+kpi("Cancelados",n("B",e=>e.cancelado),"bipados e cancelados","var(--bad)")+kpi("Teste&Conferência",n("T"),"registros")+kpi("Embalagens",n("E"),"registros")+kpi("Excluídos do sistema",E.filter(e=>e.gone).length,"guardados aqui")+"</div>";
+ const cp={};E.filter(e=>e.t==="B"&&!e.cancelado).forEach(e=>{if(e.campo!=="flex"){const c=CPN[e.campo]||e.campo;cp[c]=(cp[c]||0)+1}});
+ {const fx=E.filter(e=>e.t==="B"&&!e.cancelado&&isFx(e)).length;if(fx)cp["⚡ FLEX"]=fx}
+ if(Object.keys(cp).length)h+='<h2>Pedidos bipados por campo</h2><div class="card"><div class="chips">'+Object.entries(cp).map(([c,v])=>`<span class="bd">${esc(c)} ×${v}</span>`).join("")+"</div></div>";
+ const days=[...new Set(E.map(e=>e.dia))].sort(),dr=d=>{const x=E.filter(e=>e.dia===d);return[x.filter(e=>e.t==="B"&&!e.cancelado).length,x.filter(e=>e.t==="B"&&e.cancelado).length,x.filter(e=>e.t==="T").length,x.filter(e=>e.t==="E").length,x.filter(e=>e.gone).length]};
+ const rows=days.map(d=>[d,...dr(d)]),sm=[0,1,2,3,4].map(i=>rows.reduce((a,r)=>a+r[i+1],0));
+ h+='<h2>Por dia</h2><div class="card tw"><table><tr><th>Dia</th><th>Bipados</th><th>Cancelados</th><th>Teste&amp;Conf.</th><th>Embalagem</th><th>Excluídos</th></tr>'+rows.map(r=>`<tr><td>${r[0].split("-").reverse().join("/")}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td>${r[5]}</td></tr>`).join("")+`<tr><th>Total</th>${sm.map(v=>`<th>${v}</th>`).join("")}</tr></table></div>`;
+ let pr="";["T","E"].forEach(t=>{const rc=E.filter(e=>e.t===t&&e.dataHora).map(e=>({name:e.pessoa,day:e.dia,tod:todBR(e.dataHora)})),ps=analyze(rc,{},pz).sort((a,b)=>b.count-a.count);
+  ps.forEach(p=>{pr+=`<tr><td>${TPN[t]}</td><td>${esc(nm(p.name))}</td><td>${p.count}</td><td>${fmt(p.avg)}</td><td>${E.filter(e=>e.t===t&&e.pessoa===p.name&&e.gone).length}</td></tr>`})});
+ if(pr)h+='<h2>Por pessoa</h2><div class="card tw"><table><tr><th>Área</th><th>Pessoa</th><th>Pedidos</th><th>Tempo médio</th><th>Excluídos</th></tr>'+pr+"</table></div>";
+ h+=`<h2>Todos os registros do mês</h2><div class="card"><div class="rpg"><label class="d">Tipo<select onchange="MS.tp=this.value;msList()"><option value="all">Todos</option><option value="B">Impressos(&bipado)</option><option value="T">Teste&amp;Conferência</option><option value="E">Embalagem</option></select></label><label class="d">Situação<select onchange="MS.st=this.value;msList()"><option value="all">Todas</option><option value="ok">Ativos</option><option value="canc">Cancelados</option><option value="gone">Excluídos do sistema</option></select></label><label class="d">Buscar pedido<input type="text" value="${esc(MS.q)}" oninput="MS.q=this.value.trim();msList()"></label></div><div id="msd"></div><div id="msl"></div><div class="row"><button onclick="msCsv()">Baixar mês (.csv)</button></div></div>`;
+ $("out").innerHTML=h;arqStatus();msList();if(MS.del){msAskDraw();if($("msp"))$("msp").value=pw0}}
+function msList(){
+ const f=monthE().sort((a,b)=>sortK(b).localeCompare(sortK(a))).filter(e=>(MS.tp==="all"||e.t===MS.tp)&&(MS.st==="all"||sitOf(e)===MS.st)&&(!MS.q||String(e.pedido).includes(MS.q)));
+ $("msl").innerHTML=`<div class="d" style="margin:8px 0">${f.length} registro(s)${f.length>500?" (mostrando 500)":""}</div><div class="tw"><table><tr><th>Data/Hora</th><th>Tipo</th><th>Pedido</th><th>Pessoa / Campo</th><th>Observação</th><th>Situação</th><th></th></tr>${f.slice(0,500).map(e=>`<tr><td>${esc(e.dataHora||e.dia)}</td><td>${TPN[e.t]}</td><td>${e.pedido}</td><td>${esc(e.t==="B"?cpl(e):e.pessoa||"")}</td><td>${esc(e.obs||"")}</td><td>${sitLabel(e)}</td><td><button class="gh" style="padding:2px 8px;font-size:12px" title="Apagar este pedido" onclick="msAsk('${e.k}')">🗑</button></td></tr>`).join("")}</table></div>`}
+function msCsv(sub){
+ const q=v=>'"'+String(v==null?"":v).replace(/"/g,'""')+'"',st=e=>e.gone?"Excluído do sistema":e.cancelado?"Cancelado":"Ativo";
+ const r=monthE().sort((a,b)=>sortK(a).localeCompare(sortK(b))).map(e=>[e.dataHora||e.dia,TPN[e.t],e.pedido,e.t==="B"?cpl(e):e.pessoa,e.obs||"",st(e)].map(q).join(";"));
+ dlSave("monitoramento-"+MS.m+".csv","\ufeff"+["Data/Hora;Tipo;Pedido;Pessoa/Campo;Observação;Situação",...r].join("\r\n"),"text/csv;charset=utf-8",sub||"Mensal")}
+function msBackup(sub){dlSave("backup-relatorio-"+new Date().toISOString().slice(0,10)+".json",JSON.stringify(ARQ),"application/json",sub||"Backup completo")}
+async function msRestore(el){
+ const f=el.files[0];if(!f)return;
+ try{
+  const src=JSON.parse(await f.text()),ents=Object.values(src).filter(e=>e&&typeof e==="object"&&e.t&&e.pedido!==undefined);
+  if(!ents.length)throw 0;
+  let cl=false;ents.forEach(e=>{const mo=(e.dia||"").slice(0,7);if(ZC.m[mo]&&sortK(e)<=ZC.m[mo]){delete ZC.m[mo];cl=true}if(ZC.a&&sortK(e)<=ZC.a){ZC.a="";cl=true}});
+  if(cl){ZC.u=Date.now();zcSave();zcPush()}
+  const rmT={};Object.keys(src).forEach(k=>{if(DEL[k]){delete DEL[k];rmT[k]=null}});if(Object.keys(rmT).length){delSave();try{if(fbRef)firebase.database().ref("relatorioApagados").update(rmT)}catch(e){}}
+  const b=Object.keys(ARQ).length;arqMerge(src);arqSave();arqPush();
+  MS.rm="✅ Backup restaurado: "+(Object.keys(ARQ).length-b)+" registro(s) recuperado(s) (o arquivo tinha "+ents.length+").";
+ }catch(e){MS.rm="⚠️ Arquivo de backup inválido."}
+ el.value="";renderMensal()}
+let BKC={dOn:1,dT:"16:00",wOn:1,wD:5,wT:"16:00",ld:"",lw:"",ldAt:"",lwAt:""},bkMsg="";
+try{Object.assign(BKC,JSON.parse(localStorage.getItem("relBk")||"{}"))}catch(e){}
+const bkSave=()=>{try{localStorage.setItem("relBk",JSON.stringify(BKC))}catch(e){}};
+const isoD=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const minOf=t=>{const[h,m]=String(t||"16:00").split(":");return h*60+ +m};
+const DIAS=["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"];
+function bkBuildDay(dBR){
+ const{P}=rpLoad(),recs=P.recs.filter(r=>r.day===dBR);
+ if(!recs.length)return null;
+ const old=RP,nP=[...new Set([...P.recs.map(r=>r.name),...Object.keys(P.counts)])];
+ RP={nP,nT:[],days:[],day:dBR,from:0,to:23*3600+59*60,aP:true,aT:false,sP:new Set(nP),sT:new Set(),sec:{res:1,gra:1,tab:1,fb:1,obs:1},resp:"",gen:"Backup automático da Produção gerado em "+nowBR()+".",notes:{}};
+ try{return rpBuild()}finally{RP=old}}
+function bkDaily(manual){
+ const now=new Date(),h=bkBuildDay(now.toLocaleDateString("pt-BR"));
+ if(!h){if(manual){bkMsg="Sem registros de produção hoje: backup diário não gerado.";bkUi()}return false}
+ dlSave("backup-producao-"+isoD(now)+".html",h,"text/html;charset=utf-8","Diario - Producao");
+ BKC.ld=isoD(now);BKC.ldAt=nowBR();bkSave();bkMsg="✅ Backup diário gerado em "+BKC.ldAt+".";bkUi();return true}
+function bkWeekly(manual){
+ const now=new Date(),ms=[...new Set(Object.values(ARQ).map(e=>(e.dia||"").slice(0,7)).filter(Boolean))].sort();
+ if(!ms.length){if(manual){bkMsg="O arquivo mensal ainda está vazio: nada para gerar.";bkUi()}return false}
+ const cm=isoD(now).slice(0,7),keep=MS.m;MS.m=ms.includes(cm)?cm:ms[ms.length-1];msCsv("Mensal");MS.m=keep;
+ setTimeout(()=>msBackup("Mensal"),1200);
+ BKC.lw=isoD(now);BKC.lwAt=nowBR();bkSave();bkMsg="✅ Backup mensal gerado em "+BKC.lwAt+" (CSV do mês + backup completo).";bkUi();return true}
+function bkTick(){
+ const now=new Date(),today=isoD(now),nm_=now.getHours()*60+now.getMinutes();
+ if(BKC.dOn&&BKC.ld!==today&&nm_>=minOf(BKC.dT))bkDaily(false);
+ if(BKC.wOn&&BKC.lw!==today&&nm_>=minOf(BKC.wT)){
+  const days=BKC.lw?Math.round((new Date(today)-new Date(BKC.lw))/864e5):999;
+  if(now.getDay()===+BKC.wD||days>=8)bkWeekly(false)}}
+function bkSet(k,v){BKC[k]=v;bkSave();bkUi()}
+function bkUi(){
+ const el=$("bkc");if(!el)return;
+ const now=new Date(),today=isoD(now),nmn=now.getHours()*60+now.getMinutes();
+ const nd=!BKC.dOn?"desligado":BKC.ld===today?"amanhã às "+BKC.dT:nmn>=minOf(BKC.dT)?"em instantes (aguardando dados)":"hoje às "+BKC.dT;
+ const nw=!BKC.wOn?"desligado":(now.getDay()===+BKC.wD&&BKC.lw!==today&&nmn<minOf(BKC.wT))?"hoje às "+BKC.wT:"próxima "+DIAS[BKC.wD]+" às "+BKC.wT;
+ el.innerHTML=`<div class="rpg"><div><label class="chk"><input type="checkbox" ${BKC.dOn?"checked":""} onchange="bkSet('dOn',this.checked?1:0)"> <b>Backup diário da Produção</b></label><div class="d">Baixa o relatório do dia (arquivo .html) a partir de</div><input type="time" value="${BKC.dT}" onchange="if(this.value)bkSet('dT',this.value)"><div class="d" style="margin-top:6px">Último: ${esc(BKC.ldAt||"—")}<br>Próximo: ${nd}</div></div>
+ <div><label class="chk"><input type="checkbox" ${BKC.wOn?"checked":""} onchange="bkSet('wOn',this.checked?1:0)"> <b>Backup mensal semanal</b></label><div class="d">Baixa o CSV do mês + backup completo toda</div><select onchange="bkSet('wD',+this.value)">${DIAS.map((d,i)=>`<option value="${i}"${i===+BKC.wD?" selected":""}>${d}</option>`).join("")}</select> <input type="time" value="${BKC.wT}" onchange="if(this.value)bkSet('wT',this.value)"><div class="d" style="margin-top:6px">Último: ${esc(BKC.lwAt||"—")}<br>Próximo: ${nw}</div></div></div>
+ ${bkDirUi()}${bkMsg?`<div class="d" style="margin-top:10px">${bkMsg}</div>`:""}
+ <div class="row"><button onclick="bkDaily(true)">Fazer backup diário agora</button><button class="gh" onclick="bkWeekly(true)">Gerar mensal agora</button></div>
+ <div class="d" style="margin-top:8px">Os backups são baixados sozinhos <b>enquanto esta página estiver aberta</b> no navegador (pode ficar em segundo plano). Se o navegador perguntar, permita downloads automáticos para este site. Se a página só for aberta depois do horário, o backup do dia sai assim que ela carregar os dados.</div>`}
+setInterval(bkTick,30000);setTimeout(bkTick,10000);
+$("bb").onclick=()=>{$("bk").hidden=!$("bk").hidden;if(!$("bk").hidden){bkUi();dirCheck().then(bkUi);$("bk").scrollIntoView({behavior:"smooth"})}};
+let ZC={a:"",m:{}},fbRefZ=null,ZREM=null;
+try{ZC=JSON.parse(localStorage.getItem("relZero")||"null")||ZC}catch(e){}
+if((ZC.a||Object.keys(ZC.m).length)&&!ZC.u)ZC.u=1;
+const zcSave=()=>{try{localStorage.setItem("relZero",JSON.stringify(ZC))}catch(e){}};
+const zcCov=e=>{const k=sortK(e),mo=(e.dia||"").slice(0,7);return !!((ZC.a&&k<=ZC.a)||(ZC.m[mo]&&k<=ZC.m[mo]))};
+function arqPurge(){Object.keys(ARQ).forEach(k=>{if(zcCov(ARQ[k]))delete ARQ[k]});arqSave()}
+function zcMerge(r){if(!r||(r.u||0)<=(ZC.u||0))return false;ZC={a:r.a||"",m:r.m||{},u:r.u};zcSave();arqPurge();return true}
+function zcPush(){if(typeof firebase==="undefined"||!fbRef||ARQERR)return;if((ZC.u||0)>((ZREM||{}).u||0))try{firebase.database().ref("relatorioZero").set(JSON.parse(JSON.stringify(ZC))).catch(()=>{})}catch(e){}}
+function msZeroUi(){return `<div class="row"><button class="gh" style="border-color:var(--bad);color:var(--bad)" onclick="MS.z=!MS.z;renderMensal()">🗑 Zerar informações</button></div>`+(MS.z?`<div class="card" style="margin-top:12px;border-color:var(--bad)"><b>Zerar informações do monitoramento</b><div class="d" style="margin-top:4px">Apaga os registros guardados aqui, inclusive os que já foram excluídos do sistema (esses não podem ser recuperados depois). Os registros que ainda existem no sistema não voltam: a contagem recomeça a partir de agora. Um backup (.json) é baixado automaticamente antes de apagar.</div><div class="rpg"><label class="d">O que zerar<select id="zrs"><option value="month">Somente ${mlabel(MS.m)}</option><option value="all">Todos os meses</option></select></label><label class="d">Digite ZERAR para confirmar<input type="text" id="zrt" autocomplete="off"></label></div><div class="row"><button style="background:var(--bad)" onclick="msZero()">Confirmar e zerar</button><button class="gh" onclick="MS.z=0;renderMensal()">Cancelar</button><span id="zrm" class="bad"></span></div></div>`:"")}
+async function msZero(){
+ const sc=$("zrs").value;
+ if(($("zrt").value||"").trim().toUpperCase()!=="ZERAR"){$("zrm").textContent="Digite ZERAR para confirmar.";return}
+ const now=new Date(),cut=isoD(now)+" "+String(now.getHours()).padStart(2,"0")+":"+String(now.getMinutes()).padStart(2,"0");
+ msBackup("Backup antes de zerar");await new Promise(r=>setTimeout(r,800));
+ const del=Object.keys(ARQ).filter(k=>sc==="all"||(ARQ[k].dia||"").startsWith(MS.m));
+ if(sc==="all")ZC.a=cut;else ZC.m[MS.m]=cut;ZC.u=Date.now();
+ zcSave();del.forEach(k=>delete ARQ[k]);arqSave();
+ if(typeof firebase!=="undefined"&&fbRef&&!ARQERR){const u={};del.forEach(k=>u[k]=null);try{if(del.length)await firebase.database().ref(ARQP).update(u)}catch(e){ARQERR=true}zcPush()}
+ MS.z=0;renderMensal();arqStatus()}
+const h53=(str,seed=0)=>{let h1=0xdeadbeef^seed,h2=0x41c6ce57^seed;for(let i=0,ch;i<str.length;i++){ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677)}h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0)};
+const PWH=1621204249144257;
+let DEL={},fbRefD=null;
+try{DEL=JSON.parse(localStorage.getItem("relDel")||"{}")||{}}catch(e){}
+const delSave=()=>{try{localStorage.setItem("relDel",JSON.stringify(DEL))}catch(e){}};
+function msAsk(k){MS.del=k;msAskDraw();if($("msp"))$("msp").focus&&$("msp").focus()}
+function msAskDraw(){
+ const e=ARQ[MS.del],box=$("msd");if(!box)return;
+ if(!e){MS.del="";box.innerHTML="";return}
+ box.innerHTML=`<div class="card" style="border-color:var(--bad);margin:10px 0"><b>Apagar o pedido ${esc(String(e.pedido))}</b> <span class="d">(${TPN[e.t]} · ${esc(e.dataHora||e.dia)})</span><div class="d" style="margin-top:4px">O registro sai do monitoramento mensal e não será guardado de novo. Só volta restaurando um backup. Os dados do seu sistema de pedidos não são alterados.</div><div class="rpg"><label class="d">Senha de liberação<input type="password" id="msp" autocomplete="off"></label></div><div class="row"><button style="background:var(--bad)" onclick="msDelete()">Confirmar exclusão</button><button class="gh" onclick="MS.del='';msAskDraw()">Cancelar</button><span id="msm" class="bad"></span></div></div>`}
+async function msDelete(){
+ const k=MS.del,e=ARQ[k];
+ if(!k||!e){MS.del="";msAskDraw();return}
+ if(h53("liber|"+($("msp").value||""))!==PWH){$("msm").textContent="Senha incorreta.";$("msp").value="";return}
+ DEL[k]={u:Date.now(),pedido:e.pedido,tipo:e.t,dia:e.dia};delSave();delete ARQ[k];arqSave();
+ if(typeof firebase!=="undefined"&&fbRef&&!ARQERR){try{await firebase.database().ref(ARQP).update({[k]:null});await firebase.database().ref("relatorioApagados/"+k).set(DEL[k])}catch(er){}}
+ MS.del="";MS.rm="🗑 Pedido "+e.pedido+" apagado do monitoramento mensal.";renderMensal()}
+const FBCFG={apiKey:"AIzaSyDObAAMOO56r1wlcELxmT9wE2rW667Ta1s",authDomain:"contador-de-pedidos-7bc92.firebaseapp.com",databaseURL:"https://contador-de-pedidos-7bc92-default-rtdb.firebaseio.com",projectId:"contador-de-pedidos-7bc92",storageBucket:"contador-de-pedidos-7bc92.firebasestorage.app",messagingSenderId:"444303696454",appId:"1:444303696454:web:fc48e05704e94b11a16047"};
+let FBD=null,fbRef=null;
+function fbText(d,g){
+ const L=x=>(Array.isArray(x)?x:Object.values(x||{})).filter(Boolean);
+ const arr=L(d.historico&&d.historico[g]),pl=L(d.pessoas&&d.pessoas[g]),cnt={};
+ let o="HISTÓRICO DE PEDIDOS\n=====\n\n";
+ arr.forEach((r,i)=>{const k="Nº "+r.numeroPessoa+" - "+r.nome;cnt[k]=(cnt[k]||0)+1;
+  o+=`${i+1}. Pedido: ${String(r.pedido).padStart(5,"0")}\n   Pessoa: ${k}\n   Data/Hora: ${r.dataHora}\n   Observação: ${String(r.observacao||"").replace(/\s+/g," ").trim()||"(sem observação)"}\n\n`});
+ o+="=====\nPEDIDOS POR PESSOA\n-----\n";
+ pl.forEach(p=>{const k="Nº "+p.numero+" - "+p.nome;o+=k+": "+(cnt[k]||0)+" pedido(s)\n";delete cnt[k]});
+ Object.keys(cnt).forEach(k=>o+=k+": "+cnt[k]+" pedido(s)\n");
+ return o}
+function cloudApply(force){
+ if(!FBD)return;
+ store.prod.t=fbText(FBD,"embalagens");store.teste.t=fbText(FBD,"teste");
+ if(mode==="mensal")return;
+ const t=store[mode].t;if(!force&&t===$("t").value&&$("out").innerHTML)return;
+ const k=snap();AUTO=true;$("t").value=t;render();restore(k);AUTO=false}
+function cloudOn(){
+ if(typeof firebase==="undefined"){$("cs").textContent="Sem acesso à nuvem neste ambiente. Abra este arquivo no seu computador ou servidor, ou use o arquivo .txt.";return}
+ try{
+  if(!firebase.apps.length)firebase.initializeApp(FBCFG);
+  fbRef=firebase.database().ref("contadorPedidos");
+  fbRef.on("value",s=>{FBD=s.val()||{};$("cs").textContent="☁️ Conectado ao sistema · atualizado às "+new Date().toLocaleTimeString("pt-BR");cloudApply();arqSync()},e=>{$("cs").textContent="Erro ao ler a nuvem: "+e.message});
+  fbRefB=firebase.database().ref("contadorPedidosBip");fbRefB.on("value",s=>{FBBD=s.val()||{};FBBR=true;arqSync()});
+  fbRefA=firebase.database().ref(ARQP);fbRefA.on("value",s=>{REM=s.val()||{};arqMerge(REM);arqSave();arqPush();arqStatus();if(mode==="mensal")renderMensal()},()=>{ARQERR=true;arqStatus()});
+  fbRefD=firebase.database().ref("relatorioApagados");fbRefD.on("value",s=>{const r=s.val()||{};let ch=false;Object.keys(r).forEach(k=>{if(!DEL[k]){DEL[k]=r[k];ch=true}});const w={};Object.keys(DEL).forEach(k=>{if(!r[k])w[k]=DEL[k]});if(Object.keys(w).length)try{fbRefD.update(w)}catch(e){}if(ch){delSave();Object.keys(ARQ).forEach(k=>{if(DEL[k])delete ARQ[k]});arqSave();arqStatus();if(mode==="mensal")renderMensal()}});
+  fbRefZ=firebase.database().ref("relatorioZero");fbRefZ.on("value",s=>{ZREM=s.val();zcMerge(ZREM);zcPush();if(mode==="mensal")renderMensal()});
+  $("cb").textContent="Desconectar";
+ }catch(e){$("cs").textContent="Erro ao conectar: "+e.message}}
+function cloudOff(){if(fbRef)fbRef.off();if(fbRefB)fbRefB.off();if(fbRefA)fbRefA.off();if(fbRefZ)fbRefZ.off();if(fbRefD)fbRefD.off();fbRefB=fbRefA=fbRefZ=fbRefD=null;FBBR=false;fbRef=null;FBD=null;$("cb").textContent="Conectar ao sistema";$("cs").textContent="Desconectado. Cole os dados ou carregue um arquivo."}
+$("cb").onclick=()=>fbRef?cloudOff():cloudOn();
+let RP=null;
+const dk=d=>+d.split("/").reverse().join("");
+const RPCSS='body{font:14px/1.5 system-ui,sans-serif;color:#1b1f27;margin:0;background:#fff}main{max-width:900px;margin:0 auto;padding:24px}h1{font-size:24px;margin:0}h2{font-size:18px;margin:28px 0 10px;border-bottom:2px solid #2563eb;padding-bottom:4px}h3{font-size:15px;margin:18px 0 8px}.m{color:#667085;font-size:13px}.nt{background:#f5f6f8;border-left:4px solid #2563eb;padding:10px 14px;border-radius:4px}.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.k{border:1px solid #e3e6eb;border-radius:8px;padding:10px}.k small{display:block;color:#667085;text-transform:uppercase;font-size:11px}.k b{display:block;font-size:22px}.k span{color:#667085;font-size:12px}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:6px 8px;border-bottom:1px solid #e3e6eb;text-align:left}th{color:#667085}.bs{display:flex;gap:6px;align-items:flex-end;height:130px}.b{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;min-width:0}.b em{font-style:normal;font-size:10px;color:#667085}.tr{flex:1;width:100%;background:#eef0f4;border-radius:3px;display:flex;align-items:flex-end;overflow:hidden}.stk{width:100%;display:flex;flex-direction:column;min-height:3px}.stk i{display:flex;align-items:center;justify-content:center;font:600 10px/1 sans-serif;color:#fff;overflow:hidden;font-style:normal}.b small{font-size:10px;color:#667085;margin-top:3px}.lg{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;margin-top:8px}.lg span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);margin-right:5px}.fc{border:1px solid #e3e6eb;border-radius:8px;padding:12px;margin:10px 0;break-inside:avoid}.fc h4{margin:0 0 6px;font-size:15px}.fc ul{margin:6px 0;padding-left:18px}.ok{color:#15803d}.bad{color:#b42318}.pn{background:#fff8e6;border-left:4px solid #d97706;padding:8px 12px;margin-top:8px;border-radius:4px}.ob{list-style:none;padding:0;margin:8px 0 0}.ob li{border-top:1px solid #e3e6eb;padding:5px 0}.ob small{display:block;color:#667085}.ch span{display:inline-block;border:1px solid #d0d5dd;border-radius:99px;padding:1px 10px;margin:0 6px 6px 0;font-size:12px}body{-webkit-print-color-adjust:exact;print-color-adjust:exact}@media print{.k{break-inside:avoid}}';
+const rk_=(a,b,c)=>`<div class="k"><small>${a}</small><b>${b}</b><span>${c}</span></div>`;
+const rpNote=(g,n)=>{const t=(RP.notes[g+"|"+n]||"").trim();return t?`<div class="pn"><b>Observação do responsável:</b><br>${esc(t).replace(/\n/g,"<br>")}</div>`:""};
+function rpLoad(){const pt=mode==="prod"?$("t").value:store.prod.t,tt=mode==="teste"?$("t").value:store.teste.t;return{P:parse(pt||""),T:parseObs(tt||"")}}
+function rpChart(recs){
+ if(!recs.length)return"";
+ const t=recs.map(r=>r.tod),mn=Math.min(...t),mx=Math.max(...t),sp=mx-mn,st=sp<=1800?60:sp<=14400?600:3600,a=Math.floor(mn/st),n=Math.floor(mx/st)-a+1;
+ const ns=[...new Set(recs.map(r=>r.name))],c=ns.map(()=>Array(n).fill(0));
+ recs.forEach(r=>c[ns.indexOf(r.name)][Math.floor(r.tod/st)-a]++);
+ const col=Array.from({length:n},(_,b)=>c.reduce((s,z)=>s+z[b],0)),m=Math.max(...col),ev=Math.ceil(n/10);
+ return `<h3>Pedidos por faixa de horário</h3><div class="bs">${col.map((v,b)=>`<div class="b"><em>${v}</em><div class="tr"><div class="stk" style="height:${v/m*100}%">${ns.map((_,i)=>c[i][b]?`<i style="flex:${c[i][b]};background:${HC[i%8]}">${c[i][b]}</i>`:"").join("")}</div></div><small>${b%ev===0?hhmm((a+b)*st):"&nbsp;"}</small></div>`).join("")}</div><div class="lg">${ns.map((x,i)=>`<span style="--c:${HC[i%8]}">${esc(nm(x))} (${c[i].reduce((s,v)=>s+v,0)})</span>`).join("")}</div>`}
+function rpProd(P,inR,pz){
+ const R=RP,recs=P.recs.filter(r=>R.sP.has(r.name)&&inR(r.day,r.tod)),have=new Set(recs.map(r=>r.name)),counts={};
+ R.nP.forEach(n=>{if(R.sP.has(n)&&!have.has(n))counts[n]=0});
+ const ps=analyze(recs,counts,pz),rk=[...ps].sort((a,b)=>b.count-a.count),team={},ivs=ps.flatMap(p=>p.iv.map(x=>({...x,name:p.name})));
+ let h="<section><h2>Produção — Embalagens</h2>";
+ if(!rk.length)return h+'<p class="m">Sem registros no filtro escolhido.</p></section>';
+ const tot=rk.reduce((a,p)=>a+p.count,0);
+ if(ivs.length)team.avg=mean(ivs.map(x=>x.v));
+ if(R.sec.res){h+='<div class="kp">'+rk_("Total de pedidos",tot,rk.length+" pessoa(s)");
+  if(ivs.length){const f=ivs.reduce((a,b)=>b.v<a.v?b:a),s=ivs.reduce((a,b)=>b.v>a.v?b:a);
+   h+=rk_("Tempo médio",fmt(team.avg),"entre pedidos")+rk_("Mais rápida",fmt(f.v),esc(nm(f.name))+" às "+hhmm(f.to))+rk_("Mais demorada",fmt(s.v),esc(nm(s.name))+" às "+hhmm(s.to))}
+  h+="</div>"}
+ if(R.sec.gra)h+=rpChart(recs);
+ if(R.sec.tab)h+='<h3>Desempenho por pessoa</h3><table><tr><th>Nome</th><th>Pedidos</th><th>Tempo médio</th><th>Mais rápida</th><th>Mais demorada</th></tr>'+rk.map(p=>`<tr><td>${esc(nm(p.name))}</td><td>${p.count}</td><td>${fmt(p.avg)}</td><td>${fmt(p.fast?.v)}</td><td>${fmt(p.slow?.v)}</td></tr>`).join("")+"</table>";
+ if(R.sec.fb)h+="<h3>Feedback individual</h3>"+rk.map(p=>`<div class="fc"><h4>${esc(nm(p.name))} <small class="m">· ${badge(p,team,ps)[0]}</small></h4><ul>${feedback(p,team,ps).map(x=>"<li>"+x+"</li>").join("")}</ul>${rpNote("P",p.name)}</div>`).join("");
+ else{const nn=rk.filter(p=>rpNote("P",p.name));if(nn.length)h+="<h3>Observações por pessoa</h3>"+nn.map(p=>`<div class="fc"><h4>${esc(nm(p.name))}</h4>${rpNote("P",p.name)}</div>`).join("")}
+ return h+"</section>"}
+function rpTest(T,inR,pz){
+ const R=RP,rows=T.rows.filter(r=>R.sT.has(r.name)&&(r.tod==null||inR(r.day,r.tod)));
+ const tm=analyze(rows.filter(r=>r.tod!=null),{},pz),av={},sl={};tm.forEach(p=>{av[p.name]=p.avg;sl[p.name]=slowFlag(p,tm).slow});
+ const pm={},get=n=>pm[n]||(pm[n]={name:n,ord:0,obs:[],pos:0,neg:0,neu:0,th:{}});
+ rows.forEach(r=>{const p=get(r.name);p.ord++;if(r.obs){const c=classify(r.obs,av[r.name]!=null&&!sl[r.name]);p.ign=(p.ign||0)+c.ign;p.obs.push(r);c.hits.forEach(h=>{const k=h.t+"|"+(h.pol>0?1:-1);p.th[k]=(p.th[k]||0)+1})}});
+ R.nT.forEach(n=>{if(R.sT.has(n))get(n)});
+ const all=tm.flatMap(p=>p.iv.map(x=>x.v)),tavg=all.length?mean(all):null,ps=Object.values(pm).sort((a,b)=>b.ord-a.ord),tot=ps.reduce((a,p)=>a+p.ord,0),wo=ps.reduce((a,p)=>a+p.obs.length,0);
+ let h="<section><h2>Teste &amp; Conferência</h2>";
+ if(!ps.length)return h+'<p class="m">Sem registros no filtro escolhido.</p></section>';
+ if(R.sec.res){h+='<div class="kp">'+rk_("Pedidos testados",tot,ps.length+" pessoa(s)")+rk_("Com observação",wo,(tot?Math.round(wo/tot*100):0)+"% dos pedidos")+(tavg?rk_("Tempo médio",fmt(tavg),"entre pedidos"):"")+"</div>";
+  const tt={};ps.forEach(p=>Object.entries(p.th).forEach(([k,n])=>{const t=k.split("|")[0];tt[t]=(tt[t]||0)+n}));
+  const te=Object.entries(tt).sort((a,b)=>b[1]-a[1]);if(te.length)h+='<h3>Temas mais citados</h3><div class="ch">'+te.map(([t,n])=>`<span>${t} ×${n}</span>`).join("")+"</div>"}
+ if(R.sec.gra)h+=rpChart(rows.filter(r=>r.tod!=null));
+ if(R.sec.tab)h+='<h3>Resumo por pessoa</h3><table><tr><th>Nome</th><th>Pedidos</th><th>Observações</th><th>Tempo médio</th></tr>'+ps.map(p=>`<tr><td>${esc(nm(p.name))}</td><td>${p.ord}</td><td>${p.obs.length}</td><td>${fmt(av[p.name])}</td></tr>`).join("")+"</table>";
+ if(R.sec.fb||R.sec.obs)h+="<h3>Relatório de observações do teste</h3>"+ps.map(p=>`<div class="fc"><h4>${esc(nm(p.name))}</h4>${R.sec.fb?`<ul>${fbTest(p,av[p.name],tavg).map(x=>"<li>"+x+"</li>").join("")}</ul>`:""}${rpNote("T",p.name)}${R.sec.obs&&p.obs.length?`<ul class="ob">${p.obs.map(o=>`<li><small>Pedido ${esc(o.ped)}${o.tod!=null?" · "+o.day+" "+hhmm(o.tod):""}</small>${esc(o.obs)}</li>`).join("")}</ul>`:""}</div>`).join("");
+ return h+"</section>"}
+function rpBuild(){
+ const{P,T}=rpLoad(),R=RP,pz=+$("pz").value||30,inR=(d,t)=>(R.day==="all"||d===R.day)&&t>=R.from&&t<R.to+60;
+ let B=`<header><h1>Relatório do dia</h1><div class="m">${R.day==="all"?"Todos os dias":esc(R.day)} · ${hhmm(R.from)} às ${hhmm(R.to)}${R.resp?" · Responsável: "+esc(R.resp):""} · Gerado em ${new Date().toLocaleString("pt-BR")}</div></header>`;
+ if(R.gen.trim())B+=`<section><h2>Observações do responsável</h2><div class="nt">${esc(R.gen.trim()).replace(/\n/g,"<br>")}</div></section>`;
+ if(R.aP)B+=rpProd(P,inR,pz);
+ if(R.aT)B+=rpTest(T,inR,pz);
+ if(!R.aP&&!R.aT)B+='<p class="m">Nenhuma área selecionada.</p>';
+ return `<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Relatório do dia</title><style>${RPCSS}</style></head><body><main>${B}</main></body></html>`}
+function rpOpen(){
+ const{P,T}=rpLoad(),old=RP;
+ const nP=[...new Set([...P.recs.map(r=>r.name),...Object.keys(P.counts)])],nT=[...new Set([...T.rows.map(r=>r.name),...Object.keys(T.counts)])];
+ const days=[...new Set([...P.recs.map(r=>r.day),...T.rows.map(r=>r.day)])].filter(d=>d&&d!=="-").sort((a,b)=>dk(a)-dk(b));
+ RP={nP,nT,days,day:days.length?days[days.length-1]:"all",from:0,to:23*3600+59*60,aP:nP.length>0,aT:nT.length>0,sP:new Set(nP),sT:new Set(nT),sec:{res:1,gra:1,tab:1,fb:1,obs:1},resp:old?old.resp:"",gen:old?old.gen:"",notes:old?old.notes:{}};
+ rpDraw()}
+function rpDraw(){
+ const R=RP,ck=(f,v,l)=>`<label class="chk"><input type="checkbox" ${v?"checked":""} onchange="${f}(this.checked)"> ${l}</label>`;
+ const chips=(g,ns,set)=>ns.map((n,i)=>`<button class="chip${set.has(n)?" on":""}" style="--c:${HC[i%8]}" onclick="rpTog('${g}',${i})">${esc(nm(n))}</button>`).join("");
+ const SL={res:"Resumo geral",gra:"Gráfico por horário",tab:"Tabela por pessoa",fb:"Feedback individual",obs:"Observações do teste"};
+ const nt=(g,ns,set)=>ns.map((n,i)=>set.has(n)?`<label class="d">${g==="P"?"Produção":"Teste"} · ${esc(nm(n))}<textarea class="rpt" oninput="rpNt('${g}',${i},this.value)">${esc(R.notes[g+"|"+n]||"")}</textarea></label>`:"").join("");
+ $("rpc").innerHTML=`<div class="rpg"><label class="d">Dia<select onchange="rpDay(this.value)"><option value="all"${R.day==="all"?" selected":""}>Todos os dias</option>${R.days.map(d=>`<option${d===R.day?" selected":""}>${d}</option>`).join("")}</select></label><label class="d">Início<input type="time" value="${hhmm(R.from)}" onchange="rpTm(0,this.value)"></label><label class="d">Fim<input type="time" value="${hhmm(R.to)}" onchange="rpTm(1,this.value)"></label></div>
+ <div class="rpg"><div><div class="d">Áreas</div>${ck("rpA.bind(0,'P')",R.aP,"Produção (Embalagens)")}${ck("rpA.bind(0,'T')",R.aT,"Teste&amp;Conferência")}</div><div><div class="d">O que mostrar</div>${Object.keys(SL).map(k=>ck("rpS.bind(0,'"+k+"')",R.sec[k],SL[k])).join("")}</div></div>
+ ${R.nP.length?`<div class="d" style="margin-top:12px">Pessoas — Produção</div><div class="chips2">${chips("P",R.nP,R.sP)}</div>`:""}
+ ${R.nT.length?`<div class="d">Pessoas — Teste</div><div class="chips2">${chips("T",R.nT,R.sT)}</div>`:""}
+ <div class="rpg"><label class="d">Responsável<input type="text" style="width:100%" value="${esc(R.resp)}" oninput="RP.resp=this.value"></label></div>
+ <label class="d" style="display:block;margin-top:10px">Observação geral do responsável (aparece no topo do relatório)<textarea class="rpt" oninput="RP.gen=this.value">${esc(R.gen)}</textarea></label>
+ <details style="margin-top:10px"><summary class="d">Observações por pessoa (opcional)</summary><div class="rpg">${(R.aP?nt("P",R.nP,R.sP):"")+(R.aT?nt("T",R.nT,R.sT):"")}</div></details>`}
+const rpA=(g,v)=>{RP["a"+g]=v;rpDraw()},rpS=(k,v)=>{RP.sec[k]=v?1:0;rpDraw()},rpDay=v=>{RP.day=v},rpNt=(g,i,v)=>{RP.notes[g+"|"+(g==="P"?RP.nP:RP.nT)[i]]=v};
+function rpTog(g,i){const n=(g==="P"?RP.nP:RP.nT)[i],s=g==="P"?RP.sP:RP.sT;s.has(n)?s.delete(n):s.add(n);rpDraw()}
+function rpTm(w,v){if(!v)return;const[h,m]=v.split(":"),x=h*3600+m*60;RP[w?"to":"from"]=x;if(RP.to<RP.from){if(w)RP.from=x;else RP.to=x}rpDraw()}
+function rpPrev(){try{const f=$("rpf");f.srcdoc=rpBuild();f.hidden=false;f.scrollIntoView({behavior:"smooth"})}catch(e){toast("⚠️ Erro ao montar o relatório: "+esc(e.message),9000)}}
+function rpPrint(){rpPrev();setTimeout(()=>{try{$("rpf").contentWindow.print()}catch(e){}},400)}
+async function rpDownload(){
+ try{const html=rpBuild(),name="relatorio-do-dia-"+(RP.day==="all"?"todos-os-dias":RP.day.replace(/\//g,"-"))+".html";
+  await dlSave(name,html,"text/html;charset=utf-8","Relatorios do dia")}catch(e){toast("⚠️ Erro ao montar o relatório: "+esc(e.message),9000)}}
+$("rb").onclick=()=>{if($("rp").hidden){rpOpen();$("rp").hidden=false;$("rp").scrollIntoView({behavior:"smooth"})}else $("rp").hidden=true};
+$("go").onclick=render;
+cloudOn();
+</script>
+</body>
+</html>
