@@ -44,12 +44,48 @@ th,td{padding:9px 10px;text-align:left;white-space:nowrap;border-bottom:1px soli
 label.chk{display:block;margin:4px 0;font-size:14px;color:var(--tx)}.rpt{min-height:70px;font:14px/1.4 system-ui,sans-serif;margin-top:4px}
 #rpf{width:100%;height:560px;border:1px solid var(--bd);border-radius:8px;background:#fff;margin-top:12px}
 #toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);max-width:92vw;background:var(--cd);color:var(--tx);border:1px solid var(--bd);border-radius:10px;padding:10px 14px;box-shadow:0 8px 30px #0006;z-index:50;font-size:14px}#toast[hidden]{display:none}#toast a{color:var(--ac)}
-@media print{#toast,#bk,#rp,details,button,.tabs{display:none}}
+@media print{#toast,#bk,#rp,details,button,.tabs,#lg,#ub{display:none}}
+#lg{position:fixed;inset:0;z-index:200;background:var(--bg);overflow:auto;display:grid;place-items:center;padding:20px}#lg[hidden]{display:none}
+#lg .lgc{width:100%;max-width:400px;background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:26px}
+#lg h2{margin:0 0 4px;font-size:21px;border:0;padding:0}
+#lg .lgt{display:grid;grid-template-columns:1fr 1fr;gap:4px;border:1px solid var(--bd);border-radius:10px;padding:4px;margin:16px 0}
+#lg .lgt button{border:0;background:transparent;color:var(--mut);font:inherit;font-weight:500;padding:8px;border-radius:7px;cursor:pointer}
+#lg .lgt button.on{background:var(--bg);color:var(--tx);box-shadow:0 0 0 1px var(--bd)}
+#lg label{display:block;font-size:14px;font-weight:500;margin:0 0 12px}
+#lg label.c{display:flex;align-items:center;gap:8px;font-weight:400}
+#lg input[type=email],#lg input[type=password]{display:block;width:100%;margin-top:6px;padding:10px 12px;font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:8px}
+#lg .lgb{width:100%;padding:11px;border:0;border-radius:8px;background:var(--ac);color:#fff;font:inherit;font-weight:600;cursor:pointer;margin-top:6px}
+#lg .lgb:disabled{opacity:.6}
+#lg .lgm{min-height:20px;margin:12px 0 0;font-size:14px}#lg .lgm.bad{color:var(--bad)}#lg .lgm.ok{color:var(--ok)}
+#ub{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:13px;color:var(--mut)}#ub[hidden]{display:none}
+
 </style>
 </head>
 <body>
+<div id="lg">
+ <div class="lgc">
+  <h2>Acesso ao relatório</h2>
+  <div class="d">Entre com sua conta ou crie uma nova.</div>
+  <div class="lgt"><button type="button" id="lg-ti" class="on">Entrar</button><button type="button" id="lg-tu">Criar conta</button></div>
+  <form id="lg-fi" novalidate>
+   <label>E-mail<input type="email" id="lg-ie" autocomplete="username" inputmode="email" required></label>
+   <label>Senha<input type="password" id="lg-ip" autocomplete="current-password" required></label>
+   <label class="c"><input type="checkbox" id="lg-keep"> Manter conectado</label>
+   <button class="lgb" type="submit" id="lg-bi">Entrar</button>
+  </form>
+  <form id="lg-fu" novalidate hidden>
+   <label>E-mail<input type="email" id="lg-ue" autocomplete="username" inputmode="email" required></label>
+   <label>Senha<input type="password" id="lg-up" autocomplete="new-password" required><span class="d">Mínimo de 8 caracteres.</span></label>
+   <label>Repita a senha<input type="password" id="lg-up2" autocomplete="new-password" required></label>
+   <button class="lgb" type="submit" id="lg-bu">Criar conta</button>
+  </form>
+  <p class="lgm" id="lg-m" role="status" aria-live="polite"></p>
+  <div class="d">O Monitoramento mensal só é liberado pelo administrador.</div>
+ </div>
+</div>
 <main>
 <h1>Dashboard de Embalagens</h1>
+<div id="ub" hidden>👤 <span id="ue"></span> <button class="gh" id="uo" type="button">Sair</button></div>
 <div class="tabs"><button class="tab on" data-m="prod">Produção</button><button class="tab" data-m="teste">Teste</button><button class="tab" data-m="mensal">Monitoramento mensal</button><button class="gh" id="rb" style="margin-left:auto">📄 Relatório do dia</button><button class="gh" id="bb">💾 Backup automático</button></div>
 <details id="dt" class="card" open><summary>Dados do histórico de pedidos</summary>
 <textarea id="t" placeholder="Cole aqui o HISTÓRICO DE PEDIDOS exportado do sistema..."></textarea>
@@ -176,13 +212,13 @@ const badge=(p,t,a)=>{if(p.count===0)return["Sem pedidos",""];if(p.avg==null)ret
 const kpi=(k,v,d,c)=>`<div class="card"><div class="k">${k}</div><div class="v" style="color:${c||"inherit"}">${v}</div><div class="d">${d}</div></div>`;
 let HF=null;const HC=["#2563eb","#d97706","#16a34a","#9333ea","#dc2626","#0891b2","#be185d","#65a30d"];
 const hhmm=s=>hm(s).slice(0,5);
-function hfHtml(){
- const H=HF,N=H.names.length,sel=[...Array(N).keys()].filter(i=>H.sel.has(i));
+function hfHtml(H=HF,p="hf"){
+ const N=H.names.length,sel=[...Array(N).keys()].filter(i=>H.sel.has(i));
  const lo=Math.max(0,Math.floor((H.from-H.t0)/H.st)),hi=Math.min(H.n-1,Math.floor((H.to+59-H.t0)/H.st)),bins=[];for(let b=lo;b<=hi;b++)bins.push(b);
  const cnt=H.r.map(z=>{const o=Array(H.n).fill(0);z.forEach(x=>{if(x>=H.from&&x<H.to+60)o[Math.floor((x-H.t0)/H.st)]++});return o});
  const tot=cnt.map(z=>z.reduce((a,b)=>a+b,0)),cols=bins.map(b=>sel.reduce((s,i)=>s+cnt[i][b],0)),m=Math.max(1,...cols),sum=cols.reduce((a,b)=>a+b,0),k=cols.indexOf(Math.max(...cols)),ev=Math.ceil(bins.length/8)||1;
- let h='<div class="card"><div class="chips2">'+H.names.map((n,i)=>`<button class="chip${H.sel.has(i)?" on":""}" style="--c:${HC[i%8]}" onclick="hfTog(${i})">${esc(nm(n))} <b>${tot[i]}</b></button>`).join("")+'<button class="gh" onclick="hfAll(1)">Todos</button><button class="gh" onclick="hfAll(0)">Nenhum</button></div>';
- h+=`<div class="chips2"><label class="d">Início <input type="time" value="${hhmm(H.from)}" onchange="hfTime(0,this.value)"></label><label class="d">Fim <input type="time" value="${hhmm(H.to)}" onchange="hfTime(1,this.value)"></label><button class="gh" onclick="hfReset()">Período todo</button></div>`;
+ let h='<div class="card"><div class="chips2">'+H.names.map((n,i)=>`<button class="chip${H.sel.has(i)?" on":""}" style="--c:${HC[i%8]}" onclick="${p}Tog(${i})">${esc(nm(n))} <b>${tot[i]}</b></button>`).join("")+`<button class="gh" onclick="${p}All(1)">Todos</button><button class="gh" onclick="${p}All(0)">Nenhum</button></div>`;
+ h+=`<div class="chips2"><label class="d">Início <input type="time" value="${hhmm(H.from)}" onchange="${p}Time(0,this.value)"></label><label class="d">Fim <input type="time" value="${hhmm(H.to)}" onchange="${p}Time(1,this.value)"></label><button class="gh" onclick="${p}Reset()">Período todo</button></div>`;
  h+=`<div class="bs">${bins.map((b,j)=>`<div class="b"><em>${cols[j]||""}</em><div class="tr"><div class="stk" style="height:${cols[j]/m*100}%">${sel.filter(i=>cnt[i][b]).map(i=>`<i style="flex:${cnt[i][b]};background:${HC[i%8]}" title="${esc(nm(H.names[i]))}: ${cnt[i][b]}">${cnt[i][b]}</i>`).join("")}</div></div><small>${j%ev===0?hhmm(H.t0+b*H.st):"&nbsp;"}</small></div>`).join("")}</div>`;
  h+=`<div class="d" style="margin-top:8px">Faixas de ${H.unit}. Cada cor é uma pessoa; o número no topo é o total das pessoas selecionadas.</div></div>`;
  h+='<div class="kp">'+kpi("Total selecionado",sum,(sel.length?sel.length+" de "+N+" pessoa(s)":"Nenhuma pessoa selecionada")+" · "+hhmm(H.from)+" às "+hhmm(H.to))+(sum?kpi("Pico da seleção",hhmm(H.t0+bins[k]*H.st),cols[k]+" pedido(s) na faixa")+kpi("Média por faixa",(sum/bins.length).toFixed(1),"pedidos por faixa de "+H.unit):"")+"</div>";
@@ -192,6 +228,34 @@ function hfTog(i){HF.sel.has(i)?HF.sel.delete(i):HF.sel.add(i);hfDraw()}
 function hfAll(v){HF.sel=new Set(v?HF.names.map((_,i)=>i):[]);hfDraw()}
 function hfTime(w,v){if(!v)return;const[h,m]=v.split(":"),x=h*3600+m*60;HF[w?"to":"from"]=x;if(HF.to<HF.from){if(w)HF.from=x;else HF.to=x}hfDraw()}
 function hfReset(){HF.from=HF.f0;HF.to=HF.f1;hfDraw()}
+let GF=null;
+function gfDraw(){const w=$("gfw");if(w&&GF)w.innerHTML=hfHtml(GF,"gf")}
+function gfTog(i){GF.sel.has(i)?GF.sel.delete(i):GF.sel.add(i);gfDraw()}
+function gfAll(v){GF.sel=new Set(v?GF.names.map((_,i)=>i):[]);gfDraw()}
+function gfTime(w,v){if(!v)return;const[h,m]=v.split(":"),x=h*3600+m*60;GF[w?"to":"from"]=x;if(GF.to<GF.from){if(w)GF.from=x;else GF.to=x}gfDraw()}
+function gfReset(){GF.from=GF.f0;GF.to=GF.f1;gfDraw()}
+// Filtro de horário dos pedidos EXCLUÍDOS do sistema (mês selecionado no Monitoramento mensal).
+// Usa um estado próprio (GF), separado do filtro das abas Produção/Teste (HF).
+function gfSetup(E){
+ const AR={B:"Impressos",T:"Teste",E:"Embalagem"},campo=MS.gb==="goneEm"?"goneEm":"dataHora",old=GF;
+ const todosB=E.filter(e=>e.gone&&/\d{1,2}:\d{2}/.test(e[campo]||"")).map(e=>({t:e.t,name:(e.t==="B"?cpl(e):(e.pessoa||"Sem nome"))+" · "+AR[e.t],tod:todBR(e[campo]),day:campo==="goneEm"?isoBR(e.goneEm):(e.dia||isoBR(e.dataHora))})),
+  todos=todosB.filter(r=>r.t!=="B");
+ if(!todos.length){GF=null;return'<p class="d" style="margin:0">Nenhum pedido de Teste&amp;Conferência ou Embalagem excluído do sistema com horário registrado neste mês.</p>'}
+ const dias=[...new Set(todos.map(r=>r.day))].filter(Boolean).sort();
+ if(MS.gd!=="all"&&!dias.includes(MS.gd))MS.gd="all";
+ const recs=MS.gd==="all"?todos:todos.filter(r=>r.day===MS.gd),
+  dsel=`<div class="rpg" style="margin-bottom:10px"><label class="d">Dia<select onchange="MS.gd=this.value;gfBox()"><option value="all"${MS.gd==="all"?" selected":""}>Todos os dias (${todos.length})</option>${dias.map(d=>`<option value="${d}"${d===MS.gd?" selected":""}>${d.split("-").reverse().join("/")} (${todos.filter(r=>r.day===d).length})</option>`).join("")}</select></label></div>`;
+ const t=recs.map(r=>r.tod),mn=Math.min(...t),mx=Math.max(...t),sp=mx-mn,st=sp<=1800?60:sp<=14400?600:3600;
+ const a=Math.floor(mn/st),n=Math.floor(mx/st)-a+1,g={};
+ recs.forEach(r=>(g[r.name]=g[r.name]||[]).push(r.tod));
+ const names=Object.keys(g).sort((x,y)=>g[y].length-g[x].length),f0=Math.floor(mn/60)*60,f1=Math.floor(mx/60)*60;
+ GF={names,r:names.map(k=>g[k]),t0:a*st,st,n,from:f0,to:f1,f0,f1,unit:st==60?"1 minuto":st==600?"10 minutos":"1 hora",sel:new Set(names.map((_,i)=>i))};
+ if(old){ // mantém a seleção e o horário que a pessoa já tinha escolhido
+  GF.sel=new Set(names.map((k,i)=>(old.names.includes(k)&&!old.sel.has(old.names.indexOf(k)))?-1:i).filter(i=>i>=0));
+  if(old.from!==old.f0)GF.from=Math.min(Math.max(old.from,f0),f1);
+  if(old.to!==old.f1)GF.to=Math.max(Math.min(old.to,f1),GF.from)}
+ return dsel+`<div class="d" style="margin-bottom:8px">${recs.length} pedido(s) de Teste&amp;Conferência/Embalagem excluído(s) do sistema ${MS.gd==="all"?"neste mês":"em "+MS.gd.split("-").reverse().join("/")}, ${campo==="goneEm"?"pelo horário em que foram excluídos":"pelo horário em que foram registrados"}.</div><div id="gfw">`+hfHtml(GF,"gf")+"</div>"}
+function gfBox(){const b=$("gfx");if(b)b.innerHTML=gfSetup(monthE())}
 function testView(recs,people){
  if(!recs.length)return'<p class="d" style="margin-top:14px">O filtro de horário precisa de horários nos registros.</p>';
  const spanSum=rs=>{const d={};rs.forEach(r=>(d[r.day]=d[r.day]||[]).push(r.tod));return Object.values(d).reduce((a,x)=>a+Math.max(...x)-Math.min(...x),0)};
@@ -217,7 +281,7 @@ function renderProd(){
   const people=analyze(recs,counts,+$("pz").value||30);
   const ivs=people.flatMap(p=>p.iv.map(x=>({...x,name:p.name})));
   const total=people.reduce((a,p)=>a+p.count,0),rk=[...people].sort((a,b)=>b.count-a.count),mc=Math.max(1,rk[0].count),team={};
-  let h='<div class="kp">'+kpi("Total de pedidos",total,people.length+" pessoa(s)");
+  let h='<div class="kp">'+kpi("Total de pedidos",total,people.length+" pessoa(s)")+'<div id="pdk" style="display:contents">'+pendKpi()+'</div>';
   if(ivs.length){
     team.avg=mean(ivs.map(x=>x.v));
     const f=ivs.reduce((a,b)=>b.v<a.v?b:a),s=ivs.reduce((a,b)=>b.v>a.v?b:a);
@@ -300,7 +364,7 @@ function restore(k){if(!k||mode!=="prod"||!HF)return;
  if($("hfw"))hfDraw()}
 $("fl").onchange=async e=>{const f=e.target.files[0];if(!f)return;$("t").value=await f.text();render();e.target.value=""};
 const ARQP="relatorioArquivo";
-let ARQ={},REM={},FBBD=null,FBBR=false,ARQERR=false,fbRefB=null,fbRefA=null,MS={m:"",tp:"all",st:"all",q:""};
+let ARQ={},REM={},FBBD=null,FBBR=false,ARQERR=false,fbRefB=null,fbRefA=null,MS={m:"",tp:"all",st:"all",q:"",gb:"dataHora",gd:"all"};
 try{ARQ=JSON.parse(localStorage.getItem("relArq")||"{}")||{}}catch(e){ARQ={}}
 store.mensal={t:"",o:""};
 const sj=o=>JSON.stringify(o,Object.keys(o).sort());
@@ -382,7 +446,7 @@ function renderMensal(){
  if(!months.length){$("out").innerHTML=h+'<div class="card" style="margin-top:14px"><p class="d" style="margin:0">Ainda não há registros guardados. Conecte ao sistema (na aba Produção ou Teste); os registros passam a ser guardados automaticamente.</p></div>';arqStatus();return}
  const E=monthE(),n=(t,f)=>E.filter(e=>e.t===t&&(!f||f(e))).length,pz=+$("pz").value||30;
  h+=`<div class="rpg"><label class="d">Mês<select onchange="MS.m=this.value;renderMensal()">${months.map(m=>`<option value="${m}"${m===MS.m?" selected":""}>${mlabel(m)}</option>`).join("")}</select></label></div>`;
- h+='<div class="kp">'+kpi("Pedidos bipados",n("B",e=>!e.cancelado),"sem cancelados")+kpi("Cancelados",n("B",e=>e.cancelado),"bipados e cancelados","var(--bad)")+kpi("Teste&Conferência",n("T"),"registros")+kpi("Embalagens",n("E"),"registros")+kpi("Excluídos do sistema",E.filter(e=>e.gone).length,"guardados aqui")+"</div>";
+ h+='<div class="kp">'+kpi("Pedidos bipados",n("B",e=>!e.cancelado),"área Pedidos do dia, sem cancelados")+kpi("Cancelados",n("B",e=>e.cancelado),"bipados e cancelados","var(--bad)")+kpi("Teste&Conferência",n("T"),"registros")+kpi("Embalagens",n("E"),"registros")+kpi("Excluídos do sistema",E.filter(e=>e.gone).length,"guardados aqui")+"</div>";
  const cp={};E.filter(e=>e.t==="B"&&!e.cancelado).forEach(e=>{if(e.campo!=="flex"){const c=CPN[e.campo]||e.campo;cp[c]=(cp[c]||0)+1}});
  {const fx=E.filter(e=>e.t==="B"&&!e.cancelado&&isFx(e)).length;if(fx)cp["⚡ FLEX"]=fx}
  if(Object.keys(cp).length)h+='<h2>Pedidos bipados por campo</h2><div class="card"><div class="chips">'+Object.entries(cp).map(([c,v])=>`<span class="bd">${esc(c)} ×${v}</span>`).join("")+"</div></div>";
@@ -392,8 +456,9 @@ function renderMensal(){
  let pr="";["T","E"].forEach(t=>{const rc=E.filter(e=>e.t===t&&e.dataHora).map(e=>({name:e.pessoa,day:e.dia,tod:todBR(e.dataHora)})),ps=analyze(rc,{},pz).sort((a,b)=>b.count-a.count);
   ps.forEach(p=>{pr+=`<tr><td>${TPN[t]}</td><td>${esc(nm(p.name))}</td><td>${p.count}</td><td>${fmt(p.avg)}</td><td>${E.filter(e=>e.t===t&&e.pessoa===p.name&&e.gone).length}</td></tr>`})});
  if(pr)h+='<h2>Por pessoa</h2><div class="card tw"><table><tr><th>Área</th><th>Pessoa</th><th>Pedidos</th><th>Tempo médio</th><th>Excluídos</th></tr>'+pr+"</table></div>";
+ h+=`<h2>Pedidos excluídos do sistema por faixa de horário</h2><div class="rpg" style="margin-bottom:10px"><label class="d">Horário considerado<select onchange="MS.gb=this.value;gfBox()"><option value="dataHora"${MS.gb!=="goneEm"?" selected":""}>Quando o pedido foi registrado</option><option value="goneEm"${MS.gb==="goneEm"?" selected":""}>Quando foi excluído do sistema</option></select></label></div><div id="gfx"></div>`;
  h+=`<h2>Todos os registros do mês</h2><div class="card"><div class="rpg"><label class="d">Tipo<select onchange="MS.tp=this.value;msList()"><option value="all">Todos</option><option value="B">Impressos(&bipado)</option><option value="T">Teste&amp;Conferência</option><option value="E">Embalagem</option></select></label><label class="d">Situação<select onchange="MS.st=this.value;msList()"><option value="all">Todas</option><option value="ok">Ativos</option><option value="canc">Cancelados</option><option value="gone">Excluídos do sistema</option></select></label><label class="d">Buscar pedido<input type="text" value="${esc(MS.q)}" oninput="MS.q=this.value.trim();msList()"></label></div><div id="msd"></div><div id="msl"></div><div class="row"><button onclick="msCsv()">Baixar mês (.csv)</button></div></div>`;
- $("out").innerHTML=h;arqStatus();msList();if(MS.del){msAskDraw();if($("msp"))$("msp").value=pw0}}
+ $("out").innerHTML=h;arqStatus();msList();gfBox();if(MS.del){msAskDraw();if($("msp"))$("msp").value=pw0}}
 function msList(){
  const f=monthE().sort((a,b)=>sortK(b).localeCompare(sortK(a))).filter(e=>(MS.tp==="all"||e.t===MS.tp)&&(MS.st==="all"||sitOf(e)===MS.st)&&(!MS.q||String(e.pedido).includes(MS.q)));
  $("msl").innerHTML=`<div class="d" style="margin:8px 0">${f.length} registro(s)${f.length>500?" (mostrando 500)":""}</div><div class="tw"><table><tr><th>Data/Hora</th><th>Tipo</th><th>Pedido</th><th>Pessoa / Campo</th><th>Observação</th><th>Situação</th><th></th></tr>${f.slice(0,500).map(e=>`<tr><td>${esc(e.dataHora||e.dia)}</td><td>${TPN[e.t]}</td><td>${e.pedido}</td><td>${esc(e.t==="B"?cpl(e):e.pessoa||"")}</td><td>${esc(e.obs||"")}</td><td>${sitLabel(e)}</td><td><button class="gh" style="padding:2px 8px;font-size:12px" title="Apagar este pedido" onclick="msAsk('${e.k}')">🗑</button></td></tr>`).join("")}</table></div>`}
@@ -493,6 +558,18 @@ async function msDelete(){
  if(typeof firebase!=="undefined"&&fbRef&&!ARQERR){try{await firebase.database().ref(ARQP).update({[k]:null});await firebase.database().ref("relatorioApagados/"+k).set(DEL[k])}catch(er){}}
  MS.del="";MS.rm="🗑 Pedido "+e.pedido+" apagado do monitoramento mensal.";renderMensal()}
 const FBCFG={apiKey:"AIzaSyDObAAMOO56r1wlcELxmT9wE2rW667Ta1s",authDomain:"contador-de-pedidos-7bc92.firebaseapp.com",databaseURL:"https://contador-de-pedidos-7bc92-default-rtdb.firebaseio.com",projectId:"contador-de-pedidos-7bc92",storageBucket:"contador-de-pedidos-7bc92.firebasestorage.app",messagingSenderId:"444303696454",appId:"1:444303696454:web:fc48e05704e94b11a16047"};
+// Pedidos pendentes = bipados na área Pedidos do dia (não cancelados) que ainda não foram embalados.
+// É calculado ao vivo: se os dados forem apagados no sistema, ou zerados/excluídos aqui, o total zera junto.
+function pendTotal(){
+ if(!FBBR||!FBD)return null;
+ const L=x=>(Array.isArray(x)?x:Object.values(x||{})).filter(Boolean),emb=new Set(L(FBD.historico&&FBD.historico.embalagens).map(r=>+r.pedido));let tot=0,n=0;
+ Object.values(FBBD||{}).forEach(b=>{
+  if(!b||b.pedido===undefined||b.cancelado)return;
+  if(DEL["B_"+b.pedido]||zcCov({dia:b.dia||isoBR(b.dataHora),dataHora:b.dataHora||""}))return;
+  tot++;if(!emb.has(+b.pedido))n++});
+ return{tot,n}}
+function pendKpi(){const r=pendTotal();return r==null?"":kpi("Total bipados",r.tot,"área Pedidos do dia, sem subtrair embalados")+kpi("Pedidos pendentes",r.n,"bipados, ainda não embalados")}
+function pendUpd(){const e=$("pdk");if(e)e.innerHTML=pendKpi()}
 let FBD=null,fbRef=null;
 function fbText(d,g){
  const L=x=>(Array.isArray(x)?x:Object.values(x||{})).filter(Boolean);
@@ -515,8 +592,8 @@ function cloudOn(){
  try{
   if(!firebase.apps.length)firebase.initializeApp(FBCFG);
   fbRef=firebase.database().ref("contadorPedidos");
-  fbRef.on("value",s=>{FBD=s.val()||{};$("cs").textContent="☁️ Conectado ao sistema · atualizado às "+new Date().toLocaleTimeString("pt-BR");cloudApply();arqSync()},e=>{$("cs").textContent="Erro ao ler a nuvem: "+e.message});
-  fbRefB=firebase.database().ref("contadorPedidosBip");fbRefB.on("value",s=>{FBBD=s.val()||{};FBBR=true;arqSync()});
+  fbRef.on("value",s=>{FBD=s.val()||{};$("cs").textContent="☁️ Conectado ao sistema · atualizado às "+new Date().toLocaleTimeString("pt-BR");cloudApply();pendUpd();arqSync()},e=>{$("cs").textContent="Erro ao ler a nuvem: "+e.message});
+  fbRefB=firebase.database().ref("contadorPedidosBip");fbRefB.on("value",s=>{FBBD=s.val()||{};FBBR=true;pendUpd();arqSync()});
   fbRefA=firebase.database().ref(ARQP);fbRefA.on("value",s=>{REM=s.val()||{};arqMerge(REM);arqSave();arqPush();arqStatus();if(mode==="mensal")renderMensal()},()=>{ARQERR=true;arqStatus()});
   fbRefD=firebase.database().ref("relatorioApagados");fbRefD.on("value",s=>{const r=s.val()||{};let ch=false;Object.keys(r).forEach(k=>{if(!DEL[k]){DEL[k]=r[k];ch=true}});const w={};Object.keys(DEL).forEach(k=>{if(!r[k])w[k]=DEL[k]});if(Object.keys(w).length)try{fbRefD.update(w)}catch(e){}if(ch){delSave();Object.keys(ARQ).forEach(k=>{if(DEL[k])delete ARQ[k]});arqSave();arqStatus();if(mode==="mensal")renderMensal()}});
   fbRefZ=firebase.database().ref("relatorioZero");fbRefZ.on("value",s=>{ZREM=s.val();zcMerge(ZREM);zcPush();if(mode==="mensal")renderMensal()});
@@ -606,6 +683,87 @@ async function rpDownload(){
   await dlSave(name,html,"text/html;charset=utf-8","Relatorios do dia")}catch(e){toast("⚠️ Erro ao montar o relatório: "+esc(e.message),9000)}}
 $("rb").onclick=()=>{if($("rp").hidden){rpOpen();$("rp").hidden=false;$("rp").scrollIntoView({behavior:"smooth"})}else $("rp").hidden=true};
 $("go").onclick=render;
+// ===== Login e permissões (contas guardadas no Firebase; liberação do Monitoramento mensal feita só pela página de administração) =====
+const lgAcc="relatorioAcesso",lgSid=Math.random().toString(36).slice(2,10);
+let lgSess=null,lgPerm={mensal:false},lgRefU=null,lgRefC=null,lgRefP=null;
+const lgDb=()=>firebase.database();
+const lgUid=e=>e.trim().toLowerCase().replace(/\./g,",");
+const lgOkMail=e=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
+const lgB64=b=>{const a=new Uint8Array(b);let t="";for(let i=0;i<a.length;i++)t+=String.fromCharCode(a[i]);return btoa(t)};
+const lgUn=t=>{const x=atob(t),a=new Uint8Array(x.length);for(let i=0;i<x.length;i++)a[i]=x.charCodeAt(i);return a};
+async function lgHash(pw,salt){const k=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveBits"]);return lgB64(await crypto.subtle.deriveBits({name:"PBKDF2",salt,iterations:150000,hash:"SHA-256"},k,256))}
+const lgSame=(a,b)=>{if(a.length!==b.length)return false;let r=0;for(let i=0;i<a.length;i++)r|=a.charCodeAt(i)^b.charCodeAt(i);return r===0};
+function lgMsg(t,k){const m=$("lg-m");m.textContent=t||"";m.className="lgm"+(k?" "+k:"")}
+function lgTab(up){$("lg-fi").hidden=up;$("lg-fu").hidden=!up;$("lg-ti").classList.toggle("on",!up);$("lg-tu").classList.toggle("on",up);lgMsg("")}
+function lgApply(){
+ const on=!!lgSess;
+ $("lg").hidden=on;$("ub").hidden=!on;if(on)$("ue").textContent=lgSess.email;
+ document.querySelector('.tab[data-m="mensal"]').style.display=lgPerm.mensal?"":"none";
+ if(!lgPerm.mensal&&mode==="mensal")document.querySelector('.tab[data-m="prod"]').click()}
+function lgStop(){if(lgRefU)lgRefU.off();if(lgRefC)lgRefC.off();if(lgRefP)lgRefP.remove();lgRefU=lgRefC=lgRefP=null}
+function lgOut(texto){lgStop();try{localStorage.removeItem("relLogin");sessionStorage.removeItem("relLogin")}catch(e){}
+ lgSess=null;lgPerm.mensal=false;lgApply();lgMsg(texto||"",texto?"bad":"")}
+function lgStart(uid){
+ lgStop();
+ lgRefU=lgDb().ref(lgAcc+"/usuarios/"+uid);
+ lgRefU.on("value",s=>{const u=s.val();
+  if(!u){lgOut("Seu acesso foi removido pelo administrador.");return}
+  if(u.aprovado===false){lgOut("Seu acesso foi bloqueado pelo administrador.");return}
+  lgSess={uid,email:u.email,admin:!!u.admin};lgPerm.mensal=!!(u.admin||u.mensal);lgApply()});
+ lgRefP=lgDb().ref(lgAcc+"/presenca/"+uid+"/"+lgSid);lgRefC=lgDb().ref(".info/connected");
+ lgRefC.on("value",s=>{if(s.val()&&lgRefP)lgRefP.onDisconnect().remove().then(()=>{if(lgRefP)lgRefP.set({em:firebase.database.ServerValue.TIMESTAMP,onde:"Relatório"})})})}
+
+$("lg-ti").onclick=()=>lgTab(false);$("lg-tu").onclick=()=>lgTab(true);
+$("uo").onclick=()=>lgOut("Você saiu da conta.");
+
+$("lg-fu").onsubmit=async ev=>{
+ ev.preventDefault();
+ const email=$("lg-ue").value.trim().toLowerCase(),pw=$("lg-up").value;
+ if(!lgOkMail(email))return lgMsg("Digite um e-mail válido, como nome@empresa.com.","bad");
+ if(pw.length<8)return lgMsg("A senha precisa ter pelo menos 8 caracteres.","bad");
+ if(pw!==$("lg-up2").value)return lgMsg("As senhas não são iguais. Digite a mesma senha nos dois campos.","bad");
+ $("lg-bu").disabled=true;
+ try{
+  const salt=crypto.getRandomValues(new Uint8Array(16)),rec={email,salt:lgB64(salt),hash:await lgHash(pw,salt),mensal:false,admin:false,aprovado:false,criado:new Date().toISOString(),criadoPor:"cadastro"};
+  const r=await lgDb().ref(lgAcc+"/usuarios/"+lgUid(email)).transaction(c=>c?undefined:rec);
+  if(!r.committed)lgMsg("Este e-mail já está cadastrado. Entre com a senha ou use outro e-mail.","bad");
+  else{$("lg-fu").reset();lgTab(false);$("lg-ie").value=email;$("lg-ip").focus();lgMsg("Conta criada. Antes do primeiro acesso, o administrador precisa liberar o seu cadastro.","ok")}
+ }catch(e){lgMsg("Não foi possível criar a conta. Verifique a internet e tente de novo.","bad")}
+ $("lg-bu").disabled=false};
+
+const lgFails={};
+$("lg-fi").onsubmit=async ev=>{
+ ev.preventDefault();
+ const email=$("lg-ie").value.trim().toLowerCase(),pw=$("lg-ip").value,f=lgFails[email]||{n:0,until:0},w=Math.ceil((f.until-Date.now())/1000);
+ if(!lgOkMail(email)||!pw)return lgMsg("Digite seu e-mail e sua senha.","bad");
+ if(w>0)return lgMsg("Muitas tentativas erradas. Aguarde "+w+" segundos para tentar de novo.","bad");
+ $("lg-bi").disabled=true;
+ try{
+  const u=(await lgDb().ref(lgAcc+"/usuarios/"+lgUid(email)).once("value")).val(),
+   salt=u&&u.salt?lgUn(u.salt):crypto.getRandomValues(new Uint8Array(16)),h=await lgHash(pw,salt);
+  if(u&&lgSame(h,u.hash)&&u.aprovado===false){
+   delete lgFails[email];lgMsg("Seu cadastro ainda não foi liberado. Peça ao administrador para liberar o seu acesso e tente de novo.","bad");
+  }else if(u&&lgSame(h,u.hash)){
+   delete lgFails[email];
+   try{localStorage.removeItem("relLogin");sessionStorage.removeItem("relLogin");($("lg-keep").checked?localStorage:sessionStorage).setItem("relLogin",lgUid(email))}catch(e){}
+   $("lg-fi").reset();lgMsg("");lgStart(lgUid(email));
+  }else{f.n++;if(f.n>=5){f.until=Date.now()+30000;f.n=0}lgFails[email]=f;lgMsg("E-mail ou senha incorretos.","bad")}
+ }catch(e){lgMsg("Não foi possível entrar. Verifique a internet e tente de novo.","bad")}
+ $("lg-bi").disabled=false};
+
+// Monitoramento mensal: só quem foi liberado pelo administrador
+{const mb=document.querySelector('.tab[data-m="mensal"]'),f=mb.onclick;
+ mb.onclick=function(e){if(!lgPerm.mensal){toast("🔒 Você não tem acesso ao Monitoramento mensal. Peça a liberação ao administrador.");return}return f.call(this,e)}}
+const _bkW=bkWeekly;bkWeekly=function(m){return lgPerm.mensal?_bkW(m):false};
+const _bkD=bkDaily;bkDaily=function(m){return lgSess?_bkD(m):false};
+
+lgApply();
+(function(){
+ if(typeof firebase==="undefined"){lgMsg("Sem conexão com o sistema de acesso. Abra o arquivo com internet.","bad");return}
+ if(!firebase.apps.length)firebase.initializeApp(FBCFG);
+ let id=null;try{id=sessionStorage.getItem("relLogin")||localStorage.getItem("relLogin")}catch(e){}
+ if(id)lgDb().ref(lgAcc+"/usuarios/"+id).once("value").then(s=>{const u=s.val();if(u&&u.aprovado!==false)lgStart(id);else lgOut("")}).catch(()=>{})})();
+
 cloudOn();
 </script>
 </body>
